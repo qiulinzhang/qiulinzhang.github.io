@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>[Math_Medium]670.Maximum Swap | To Be a Better Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###原题：670.Maximum Swap  Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get. ####example  Input: 2736O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Math_Medium]670.Maximum Swap">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/index.html">
+<meta property="og:site_name" content="To Be a Better Us">
+<meta property="og:description" content="###原题：670.Maximum Swap  Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get. ####example  Input: 2736O">
+<meta property="og:updated_time" content="2017-12-29T14:17:49.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Math_Medium]670.Maximum Swap">
+<meta name="twitter:description" content="###原题：670.Maximum Swap  Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get. ####example  Input: 2736O">
+  
+    <link rel="alternate" href="/atom.xml" title="To Be a Better Us" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">To Be a Better Us</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Math-Medium-670-Maximum-Swap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/" class="article-date">
+  <time datetime="2017-12-29T14:16:39.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [Math_Medium]670.Maximum Swap
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/maximum-swap/description/" target="_blank" rel="noopener">670.Maximum Swap</a></p>
+<blockquote>
+<p>Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get.</p>
+<p>####example</p>
+<ol>
+<li>Input: 2736<br>Output: 7236<br>Explanation: Swap the number 2 and the number 7.</li>
+<li>Input: 9973<br>Output: 9973<br>Explanation: No swap.<br>####题目大意<br>给你一个非负数，你最多只能把其中的2个数字进行对调，请求出进行操作后所得到的最大值<br>####解题思路<br>开始我想错了，自以为地想只要把最大数字和最高位数字进行对调就可以了，却忽略了当最大数字已经在最高位时，我们应该确保次高位数字最大 ，或当最高位和次高位均已经为最大时，应该保证第三位最大。<br>因此，咱们可以先把每个数字进行排序，再与原来的数字从最高位开始进行比较，找到第一个不同位，然后确保在从第一个不同位开始以及后面的位中，取出最大的那一位与第一个不同位进行对调，即可<br>####代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maximumSwap(int num) </span><br><span class="line">    &#123;</span><br><span class="line">        int temp_num=num;</span><br><span class="line">        int a_i=0,b_i=0,i=0;</span><br><span class="line">        int a[10]=&#123;0&#125;,b[10]=&#123;0&#125;;</span><br><span class="line">        while(temp_num)</span><br><span class="line">        &#123;</span><br><span class="line">            a[a_i++]=temp_num%10;</span><br><span class="line">            b[b_i++]=temp_num%10;</span><br><span class="line">            temp_num/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(b,b+b_i);</span><br><span class="line">        for(i=a_i-1;i&gt;=0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a[i]!=b[i])//找到第一个不相同的位</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        int j=0,max_num=i;</span><br><span class="line">        for(j=i;j&gt;=0;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a[j]&gt;=a[max_num])//从这一位开始往后面找最大的数，用&gt;=，即如果有两个</span><br><span class="line">                max_num=j;//相同的数，把低位上的提上来，使得值最大，1993，应该把十位上的9提到前面</span><br><span class="line">        &#125;</span><br><span class="line">        if(i&gt;=0)</span><br><span class="line">        &#123;</span><br><span class="line">            int tmp=a[i];</span><br><span class="line">            a[i]=a[max_num];</span><br><span class="line">            a[max_num]=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        int ans=0;</span><br><span class="line">        for(i=a_i;i&gt;=0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            ans=(ans*10+a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/" data-id="cjbs0ki6o0005yq55dnj26ppm" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          [Math_Easy]728.Self Dividing Numbers
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">[Math_Medium]640.Solve the Equation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/">[Math_Medium]672. Bulb Switcher II</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/">[Math_Medium]319. Bulb Switcher</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/">[Math_Easy]728.Self Dividing Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/">[Math_Medium]670.Maximum Swap</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/">[Math_Medium]640.Solve the Equation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Qiulin Zhang<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>[Math_Easy]728.Self Dividing Numbers | To Be a Better Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###原题：728.Self Dividing NumbersA self-dividing number is a number that is divisible by every digit it contains.For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 %">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Math_Easy]728.Self Dividing Numbers">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/index.html">
+<meta property="og:site_name" content="To Be a Better Us">
+<meta property="og:description" content="###原题：728.Self Dividing NumbersA self-dividing number is a number that is divisible by every digit it contains.For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 %">
+<meta property="og:updated_time" content="2017-12-29T14:19:34.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Math_Easy]728.Self Dividing Numbers">
+<meta name="twitter:description" content="###原题：728.Self Dividing NumbersA self-dividing number is a number that is divisible by every digit it contains.For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 %">
+  
+    <link rel="alternate" href="/atom.xml" title="To Be a Better Us" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">To Be a Better Us</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Math-Easy-728-Self-Dividing-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" class="article-date">
+  <time datetime="2017-12-29T14:18:14.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [Math_Easy]728.Self Dividing Numbers
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/self-dividing-numbers/description/" target="_blank" rel="noopener">728.Self Dividing Numbers</a><br>A self-dividing number is a number that is divisible by every digit it contains.<br>For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0.<br>Also, a self-dividing number is not allowed to contain the digit zero.<br>Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible</p>
+<p>####examples</p>
+<blockquote>
+<p>Input:<br>left = 1, right = 22<br>Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]</p>
+<p>####题目大意<br>一个self_deviding数能够被它所包含的所有数字整除。现在给出一组数的上界和下界，求出所有是self_dividing number的数，因为0不能作为除数，所以肯定不能有数字0</p>
+<p>####解题思路<br>将每个数字依次分解保留在一个数组中，再遍历数组把每个元素当作除数进行取余</p>
+</blockquote>
+<p>####代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; selfDividingNumbers(int left, int right) </span><br><span class="line">    &#123;</span><br><span class="line">        vector&lt;int&gt; ans;</span><br><span class="line">        int i=0,j=0;</span><br><span class="line">        for(i=left;i&lt;=right;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int a[5]=&#123;0&#125;;</span><br><span class="line">            int temp=i,k=0;</span><br><span class="line">            while(temp)</span><br><span class="line">            &#123;</span><br><span class="line">                a[k++]=temp%10;</span><br><span class="line">                temp/=10;</span><br><span class="line">            &#125;</span><br><span class="line">            for(j=0;j&lt;k;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if(a[j]==0||(i%a[j])!=0)</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if(j==k)</span><br><span class="line">                ans.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" data-id="cjbs0ki6i0003yq55y7bw3kyl" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          [Math_Medium]319. Bulb Switcher
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">[Math_Medium]670.Maximum Swap</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/">[Math_Medium]672. Bulb Switcher II</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/">[Math_Medium]319. Bulb Switcher</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/">[Math_Easy]728.Self Dividing Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/">[Math_Medium]670.Maximum Swap</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/">[Math_Medium]640.Solve the Equation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Qiulin Zhang<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

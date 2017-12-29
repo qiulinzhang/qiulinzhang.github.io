@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>[Math_Medium]29. Divide Two Integers | To Be a Better Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###原题：29. Divide Two Integers  Divide two integers without using multiplication, division and mod operator.If it is overflow, return MAX_INT. ####题目大意：不用乘号和除号，取余实现两个数相除 ####解题思路：  刚开始打算直接不停地减，直到把被除数减为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Math_Medium]29. Divide Two Integers">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/Math-Medium-29-Divide-Two-Integers/index.html">
+<meta property="og:site_name" content="To Be a Better Us">
+<meta property="og:description" content="###原题：29. Divide Two Integers  Divide two integers without using multiplication, division and mod operator.If it is overflow, return MAX_INT. ####题目大意：不用乘号和除号，取余实现两个数相除 ####解题思路：  刚开始打算直接不停地减，直到把被除数减为">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9070639-3702636046c51ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-12-29T14:13:52.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Math_Medium]29. Divide Two Integers">
+<meta name="twitter:description" content="###原题：29. Divide Two Integers  Divide two integers without using multiplication, division and mod operator.If it is overflow, return MAX_INT. ####题目大意：不用乘号和除号，取余实现两个数相除 ####解题思路：  刚开始打算直接不停地减，直到把被除数减为">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9070639-3702636046c51ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="To Be a Better Us" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">To Be a Better Us</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Math-Medium-29-Divide-Two-Integers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-29-Divide-Two-Integers/" class="article-date">
+  <time datetime="2017-12-29T14:12:08.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [Math_Medium]29. Divide Two Integers
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/divide-two-integers/description/" target="_blank" rel="noopener">29. Divide Two Integers</a></p>
+<blockquote>
+<p>Divide two integers without using multiplication, division and mod operator.<br>If it is overflow, return MAX_INT.</p>
+<p>####题目大意：不用乘号和除号，取余实现两个数相除</p>
+<p>####解题思路：</p>
+<ol>
+<li>刚开始打算直接不停地减，直到把被除数减为0止，担心当数比较大时可能会超时，但还是打算先试一波：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int divide(int dividend, int divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        if(divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1))</span><br><span class="line">            return INT_MAX;</span><br><span class="line">        int sign=((dividend&lt;0)^(divisor&gt;0))?1:-1;</span><br><span class="line">        if(dividend&lt;0)</span><br><span class="line">            dividend=-dividend;</span><br><span class="line">        if(divisor&lt;0)</span><br><span class="line">            divisor=-divisor;</span><br><span class="line">        int ans=0;</span><br><span class="line">        while(dividend-divisor&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            dividend-=divisor;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(dividend-divisor==0)</span><br><span class="line">            ans++;</span><br><span class="line">        ans*=sign;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/9070639-3702636046c51ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="time_Exceeded.png"><br><strong>结果超时，因此得换一个思路，既然不能一个一个减，我们可以一次性减多个</strong></p>
+<ol>
+<li>对于被除数a和除数b，我们可以先a-b,如果大于0，再a-2<em>b,再a-2</em>(2*b),b每次翻倍，当不能再减后，a-=b;再从a-b开始<br>比如11/3,先10-3，发现大于0，将3扩大2倍为6，再10-6，发现还是大于0，于是将6扩大2倍即12，再11-12，发现小于0，于是不能再减了，最多可以减到6，即11-6=5，还剩下5，前面翻倍操作进行了2次，相当于减了4次，每翻一倍，操作2次。于是现在用5-3，发现大于0，于是将3扩大2倍为6,而5-6&lt;0,所以只能减3，这里没有进行翻倍，操作了一次；还剩下5-3=2，小于3，此时已经减完了；共减了2+1=3次，即商为3；</li>
+<li>特殊情况：除数为0，返回最大值；当被除数为-2147483648(最小负数),除数为-1，此时商应该是2147483648.但int最大值为2147484647，超限，于是返回最大值。<br>####代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int divide(int dividend, int divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        if(divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1))</span><br><span class="line">            return INT_MAX;</span><br><span class="line">        int sign=(dividend&lt;0)^(divisor&gt;0)?1:-1;</span><br><span class="line">        if(dividend&lt;0)</span><br><span class="line">            dividend=-dividend;</span><br><span class="line">        if(divisor&lt;0)</span><br><span class="line">            divisor=-divisor;</span><br><span class="line">        int dividend_1=dividend,divisor_1=divisor;</span><br><span class="line">        int step=1,ans=0;</span><br><span class="line">        while(dividend_1-divisor&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            divisor_1=divisor;</span><br><span class="line">            step=1;</span><br><span class="line">            while(dividend_1-(divisor_1&lt;&lt;1)&gt;0)</span><br><span class="line">            &#123;</span><br><span class="line">                divisor_1&lt;&lt;=1;</span><br><span class="line">                step++;</span><br><span class="line">            &#125;</span><br><span class="line">            dividend_1-=divisor_1;</span><br><span class="line">            ans+=(1&lt;&lt;(step-1));</span><br><span class="line">        &#125;</span><br><span class="line">        if(dividend_1-divisor==0)</span><br><span class="line">            ans++;</span><br><span class="line">        ans*=sign;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-29-Divide-Two-Integers/" data-id="cjbs0ki650000yq55pjb4hx5m" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          [Math_Medium]640.Solve the Equation
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/29/Ubuntu常见问题及配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">Ubuntu常见问题及配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/">[Math_Medium]672. Bulb Switcher II</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/">[Math_Medium]319. Bulb Switcher</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/">[Math_Easy]728.Self Dividing Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/">[Math_Medium]670.Maximum Swap</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/">[Math_Medium]640.Solve the Equation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Qiulin Zhang<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

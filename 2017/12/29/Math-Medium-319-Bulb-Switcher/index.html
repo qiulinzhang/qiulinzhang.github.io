@@ -5,18 +5,18 @@
   
 
   
-  <title>my_first_post | To Be a Better Us</title>
+  <title>[Math_Medium]319. Bulb Switcher | To Be a Better Us</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hello World !Hello yjy !">
+  <meta name="description" content="####题目大意  Bulb Switcher   There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my_first_post">
-<meta property="og:url" content="http://yoursite.com/2017/12/29/my-first-post/index.html">
+<meta property="og:title" content="[Math_Medium]319. Bulb Switcher">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/Math-Medium-319-Bulb-Switcher/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
-<meta property="og:description" content="Hello World !Hello yjy !">
-<meta property="og:updated_time" content="2017-12-29T10:47:04.437Z">
+<meta property="og:description" content="####题目大意  Bulb Switcher   There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on i">
+<meta property="og:updated_time" content="2017-12-29T14:21:11.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my_first_post">
-<meta name="twitter:description" content="Hello World !Hello yjy !">
+<meta name="twitter:title" content="[Math_Medium]319. Bulb Switcher">
+<meta name="twitter:description" content="####题目大意  Bulb Switcher   There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on i">
   
     <link rel="alternate" href="/atom.xml" title="To Be a Better Us" type="application/atom+xml">
   
@@ -67,12 +67,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-my-first-post" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Math-Medium-319-Bulb-Switcher" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/29/my-first-post/" class="article-date">
-  <time datetime="2017-12-29T08:55:31.000Z" itemprop="datePublished">2017-12-29</time>
+    <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/" class="article-date">
+  <time datetime="2017-12-29T14:20:00.000Z" itemprop="datePublished">2017-12-29</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -81,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      my_first_post
+      [Math_Medium]319. Bulb Switcher
     </h1>
   
 
@@ -89,11 +93,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World !"></a>Hello World !</h1><h1 id="Hello-yjy"><a href="#Hello-yjy" class="headerlink" title="Hello yjy !"></a>Hello yjy !</h1>
+        <p>####题目大意</p>
+<blockquote>
+<p><a href="https://leetcode.com/problems/bulb-switcher/description/" target="_blank" rel="noopener">Bulb Switcher</a><br>   There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.<br><strong>Example</strong>:<br>Given n = 3.<br>At first, the three bulbs are [off, off, off].<br>After first round, the three bulbs are [on, on, on].<br>After second round, the three bulbs are [on, off, on].<br>After third round, the three bulbs are [on, off, off].<br>So you should return 1, because there is only one bulb is on.</p>
+</blockquote>
+<p>###解题思路<br>题意对于灯的操作：第一次全部点亮，第二次每两个反转一次，第三次，每三个翻转一次…….比如第6个灯泡，只会在第一次点亮，然后第二次灭，然后再在第三次亮，最后在第六次灭，可见每一次操作会是在6的系数上面进行，那么问题转化为到灯泡n有多少个系数，每一个系数意味着反转一次，所以等价于求系数个数的奇偶，每一个数的系数都是成对的，比如1和n,n/q和q等，特殊情况，比如3*3=9，这时只有一个系数。所以对于完全平方数，系数为奇数个，对于非完全平方数，系数有偶数个。<br>因为初始时灭的，所以若反转奇数次（亮灭亮灭亮….），则最终是亮的<br>　　　　　　　　　　若反转偶数次（亮灭亮灭….)，则最终是暗的 </p>
+<p>######题目要求这n个灯泡在n次操作后最终还剩下几盏灯亮，通过上面分析，我们可以知道完全平方数有奇数个系数，因此最终会反转奇数次，即最后灯会亮;而对于非完全平方数，其系数会是偶数个，所以最终灯会灭。</p>
+<p>#####因此题目等价于求不小于n的数中有几个是完全平方数，我们可以从1开始算，一直平方，知道这个数的平方大于等于n，即 sqrt(n)</p>
+<p>###代码如下：</p>
+<blockquote>
+<p>class Solution<br>{<br>public:<br>    int bulbSwitch(int n)<br>　　 　{<br> 　　　　return　sqrt(n);<br>   　　　 }<br>};</p>
+</blockquote>
+<h4 id="Funny-Math"><a href="#Funny-Math" class="headerlink" title="Funny Math"></a><em>Funny Math</em></h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/my-first-post/" data-id="cjbs0ki73000gyq55i3iz24kr" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-319-Bulb-Switcher/" data-id="cjbs0ki6b0001yq55kto5iajr" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -102,19 +117,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/12/29/Ubuntu快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          Ubuntu快捷键
+          [Math_Medium]672. Bulb Switcher II
         
       </div>
     </a>
   
   
-    <a href="/2017/12/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">[Math_Easy]728.Self Dividing Numbers</div>
     </a>
   
 </nav>

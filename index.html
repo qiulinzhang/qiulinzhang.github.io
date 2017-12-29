@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -67,6 +67,394 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Math-Medium-672-Bulb-Switcher-II" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/" class="article-date">
+  <time datetime="2017-12-29T14:21:32.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/">[Math_Medium]672. Bulb Switcher II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/bulb-switcher-ii/description/" target="_blank" rel="noopener">672. Bulb Switcher II</a></p>
+<blockquote>
+<p>There is a room with n lights which are turned on initially and 4 buttons on the wall. After performing exactly m unknown operations towards buttons, you need to return how many different kinds of status of the n lights could be.<br>Suppose n lights are labeled as number [1, 2, 3 …, n], function of these 4 buttons are given below:<br>1.Flip all the lights.<br>2.Flip lights with even numbers.<br>3.Flip lights with odd numbers.<br>4.Flip lights with (3k + 1) numbers, k = 0, 1, 2, …</p>
+</blockquote>
+<p>#####example1</p>
+<blockquote>
+<p>Input: n = 1, m = 1.<br>Output: 2<br>Explanation: Status can be: [on], [off]</p>
+</blockquote>
+<p>####example2</p>
+<blockquote>
+<p>Input: n = 2, m = 1.<br>Output: 3<br>Explanation: Status can be: [on, off], [off, on], [off, off]</p>
+</blockquote>
+<p>####example3</p>
+<blockquote>
+<p>Input: n = 3, m = 1.<br>Output: 4<br>Explanation: Status can be: [off, on, off], [on, off, on], [off, off, off], [off, on, on].</p>
+</blockquote>
+<p>###题目大意：<br>总共有n盏灯(1,2,3..n)，初始状态下全是亮的，你有四种选择，第一种：全部反转；第二种:反转奇数号灯；第三种：反转偶数号灯；第四种：反转(3k+1)号灯。现在问你：假如已经知道操作了多少遍，问你灯最后有多少种状态</p>
+<p>###分析</p>
+<ol>
+<li>对于n=0或m=0即没有灯或者不进行操作，肯定最后就只有一种状态</li>
+<li>当n=1时，即有一盏灯时，无论你进行几次操作，最后的状态就是两种，要么亮要么灭</li>
+<li>咱们可以对四个状态进行分析会发现：<br>全部反转+反转奇数=反转偶数 　　　　　 全部反转+反转偶数=反转奇数<br>反转奇数+反转偶数=全部反转<br><strong>而最后一种操作：反转(3k+1) 即(1,4,7…..)　 对于只有1盏灯和2盏灯，最后一种操作等效于反转奇数，因为只能反转1号灯,如果有第三盏，则反转奇数可以操作，第四种不能操作</strong><br>所以最后会有这么几种状态<br><strong>1)原始状态(经过多次操作后返回原始状态，即全亮)</strong><br><strong>2)操作1　　　　　　3)操作2　　　　　　4)操作3　　　　５)操作4</strong><br><strong>6)操作1+操作4　　　7)操作2+操作4　　　8)操作3+操作4</strong><br>因此，如果每个操作都代表不同的含义(即操作4与操作2不重合，即n&gt;3)且操作次数m大于等于2次，那么最后就有8种状态。<br><strong>下面来看特殊情况</strong>：<br>a) n=0或者m=0:没有灯或者不操作，最后显然只有一种状态<br>b) n=1,此时只要m不等于0，即只要进行操作，最终就是两种状态：亮或者灭<br>c) n=2，若m=1,此时操作4(3k+1)和操作2(操作奇数)是一致的，所以且不能还原全亮，所以只有三种状态，操作1，或操作2(等价操作4)，或操作3<br>　n=2,m&gt;=2,此时可以还原全亮(相同操作操作两遍)，再加上操作1+操作2(等价4)+操作3，所以共有4种状态<br>d)其他的n,只要m=1,此时可以(设n=3)操作1(000)，操作2(010)，操作3(101)，操作4(011)<br>　对于最上面的分析，我们知道1+2-&gt;3,2+3-&gt;1,1+3-&gt;2,所以对于操作1,2,3无论是奇数次操作，还是偶数次操作，都可以实现，而对于操作4，因为没有其他的合成，所以必须是奇数次操作才可以实现。因此若m=2,且所有的操作不重合(即n&gt;=3),有7种<br>对于剩下的情况，上面8种都可以实现<br><strong>所以代码如下：</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">  public:</span><br><span class="line">    int flipLights(int n, int m) </span><br><span class="line">    &#123;</span><br><span class="line">       if(n==0||m==0)</span><br><span class="line">           return 1;</span><br><span class="line">        else if(n==1)</span><br><span class="line">            return 2;</span><br><span class="line">        else if(n==2&amp;&amp;m==1)</span><br><span class="line">            return 3;</span><br><span class="line">        else if(n==2||m==1)</span><br><span class="line">            return 4;</span><br><span class="line">        else if(m==2)</span><br><span class="line">            return 7;</span><br><span class="line">        else</span><br><span class="line">            return 8;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-672-Bulb-Switcher-II/" data-id="cjbs0ki6r0007yq55k2tfwwgx" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Math-Medium-319-Bulb-Switcher" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/" class="article-date">
+  <time datetime="2017-12-29T14:20:00.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Math-Medium-319-Bulb-Switcher/">[Math_Medium]319. Bulb Switcher</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####题目大意</p>
+<blockquote>
+<p><a href="https://leetcode.com/problems/bulb-switcher/description/" target="_blank" rel="noopener">Bulb Switcher</a><br>   There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.<br><strong>Example</strong>:<br>Given n = 3.<br>At first, the three bulbs are [off, off, off].<br>After first round, the three bulbs are [on, on, on].<br>After second round, the three bulbs are [on, off, on].<br>After third round, the three bulbs are [on, off, off].<br>So you should return 1, because there is only one bulb is on.</p>
+</blockquote>
+<p>###解题思路<br>题意对于灯的操作：第一次全部点亮，第二次每两个反转一次，第三次，每三个翻转一次…….比如第6个灯泡，只会在第一次点亮，然后第二次灭，然后再在第三次亮，最后在第六次灭，可见每一次操作会是在6的系数上面进行，那么问题转化为到灯泡n有多少个系数，每一个系数意味着反转一次，所以等价于求系数个数的奇偶，每一个数的系数都是成对的，比如1和n,n/q和q等，特殊情况，比如3*3=9，这时只有一个系数。所以对于完全平方数，系数为奇数个，对于非完全平方数，系数有偶数个。<br>因为初始时灭的，所以若反转奇数次（亮灭亮灭亮….），则最终是亮的<br>　　　　　　　　　　若反转偶数次（亮灭亮灭….)，则最终是暗的 </p>
+<p>######题目要求这n个灯泡在n次操作后最终还剩下几盏灯亮，通过上面分析，我们可以知道完全平方数有奇数个系数，因此最终会反转奇数次，即最后灯会亮;而对于非完全平方数，其系数会是偶数个，所以最终灯会灭。</p>
+<p>#####因此题目等价于求不小于n的数中有几个是完全平方数，我们可以从1开始算，一直平方，知道这个数的平方大于等于n，即 sqrt(n)</p>
+<p>###代码如下：</p>
+<blockquote>
+<p>class Solution<br>{<br>public:<br>    int bulbSwitch(int n)<br>　　 　{<br> 　　　　return　sqrt(n);<br>   　　　 }<br>};</p>
+</blockquote>
+<h4 id="Funny-Math"><a href="#Funny-Math" class="headerlink" title="Funny Math"></a><em>Funny Math</em></h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-319-Bulb-Switcher/" data-id="cjbs0ki6b0001yq55kto5iajr" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Math-Easy-728-Self-Dividing-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" class="article-date">
+  <time datetime="2017-12-29T14:18:14.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/">[Math_Easy]728.Self Dividing Numbers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/self-dividing-numbers/description/" target="_blank" rel="noopener">728.Self Dividing Numbers</a><br>A self-dividing number is a number that is divisible by every digit it contains.<br>For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0.<br>Also, a self-dividing number is not allowed to contain the digit zero.<br>Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible</p>
+<p>####examples</p>
+<blockquote>
+<p>Input:<br>left = 1, right = 22<br>Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]</p>
+<p>####题目大意<br>一个self_deviding数能够被它所包含的所有数字整除。现在给出一组数的上界和下界，求出所有是self_dividing number的数，因为0不能作为除数，所以肯定不能有数字0</p>
+<p>####解题思路<br>将每个数字依次分解保留在一个数组中，再遍历数组把每个元素当作除数进行取余</p>
+</blockquote>
+<p>####代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; selfDividingNumbers(int left, int right) </span><br><span class="line">    &#123;</span><br><span class="line">        vector&lt;int&gt; ans;</span><br><span class="line">        int i=0,j=0;</span><br><span class="line">        for(i=left;i&lt;=right;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int a[5]=&#123;0&#125;;</span><br><span class="line">            int temp=i,k=0;</span><br><span class="line">            while(temp)</span><br><span class="line">            &#123;</span><br><span class="line">                a[k++]=temp%10;</span><br><span class="line">                temp/=10;</span><br><span class="line">            &#125;</span><br><span class="line">            for(j=0;j&lt;k;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if(a[j]==0||(i%a[j])!=0)</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            if(j==k)</span><br><span class="line">                ans.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" data-id="cjbs0ki6i0003yq55y7bw3kyl" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Math-Medium-670-Maximum-Swap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/" class="article-date">
+  <time datetime="2017-12-29T14:16:39.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Math-Medium-670-Maximum-Swap/">[Math_Medium]670.Maximum Swap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/maximum-swap/description/" target="_blank" rel="noopener">670.Maximum Swap</a></p>
+<blockquote>
+<p>Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get.</p>
+<p>####example</p>
+<ol>
+<li>Input: 2736<br>Output: 7236<br>Explanation: Swap the number 2 and the number 7.</li>
+<li>Input: 9973<br>Output: 9973<br>Explanation: No swap.<br>####题目大意<br>给你一个非负数，你最多只能把其中的2个数字进行对调，请求出进行操作后所得到的最大值<br>####解题思路<br>开始我想错了，自以为地想只要把最大数字和最高位数字进行对调就可以了，却忽略了当最大数字已经在最高位时，我们应该确保次高位数字最大 ，或当最高位和次高位均已经为最大时，应该保证第三位最大。<br>因此，咱们可以先把每个数字进行排序，再与原来的数字从最高位开始进行比较，找到第一个不同位，然后确保在从第一个不同位开始以及后面的位中，取出最大的那一位与第一个不同位进行对调，即可<br>####代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maximumSwap(int num) </span><br><span class="line">    &#123;</span><br><span class="line">        int temp_num=num;</span><br><span class="line">        int a_i=0,b_i=0,i=0;</span><br><span class="line">        int a[10]=&#123;0&#125;,b[10]=&#123;0&#125;;</span><br><span class="line">        while(temp_num)</span><br><span class="line">        &#123;</span><br><span class="line">            a[a_i++]=temp_num%10;</span><br><span class="line">            b[b_i++]=temp_num%10;</span><br><span class="line">            temp_num/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(b,b+b_i);</span><br><span class="line">        for(i=a_i-1;i&gt;=0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a[i]!=b[i])//找到第一个不相同的位</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        int j=0,max_num=i;</span><br><span class="line">        for(j=i;j&gt;=0;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a[j]&gt;=a[max_num])//从这一位开始往后面找最大的数，用&gt;=，即如果有两个</span><br><span class="line">                max_num=j;//相同的数，把低位上的提上来，使得值最大，1993，应该把十位上的9提到前面</span><br><span class="line">        &#125;</span><br><span class="line">        if(i&gt;=0)</span><br><span class="line">        &#123;</span><br><span class="line">            int tmp=a[i];</span><br><span class="line">            a[i]=a[max_num];</span><br><span class="line">            a[max_num]=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        int ans=0;</span><br><span class="line">        for(i=a_i;i&gt;=0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            ans=(ans*10+a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/" data-id="cjbs0ki6o0005yq55dnj26ppm" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Math-Medium-640-Solve-the-Equation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/" class="article-date">
+  <time datetime="2017-12-29T14:14:59.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Math-Medium-640-Solve-the-Equation/">[Math_Medium]640.Solve the Equation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/solve-the-equation/description/" target="_blank" rel="noopener">640.Solve the Equation</a></p>
+<blockquote>
+<p>Solve a given equation and return the value of x in the form of string “x=#value”. The equation contains only ‘+’, ‘-‘ operation, the variable x and its coefficient.<br>If there is no solution for the equation, return “No solution”.<br>If there are infinite solutions for the equation, return “Infinite solutions”.<br>If there is exactly one solution for the equation, we ensure that the value of x is an integer.</p>
+<p>####example</p>
+<ol>
+<li>Input: “x+5-3+x=6+x-2”<br>Output: “x=2”</li>
+<li>Input: “x=x”<br>Output: “Infinite solutions”</li>
+<li>Input: “x=x+2”<br>Output: “No solution”</li>
+</ol>
+</blockquote>
+<p>####题目大意<br>求解一元一次方程，且方程中只包括+，-，数字，=，x</p>
+<p>####解题思路<br>求解一元一次方程，考察字符串解析。<br>对字符串从左往右进行遍历，设置sign作为+或-的标志，flag作为在方程左边还是右边的标志，首先判断str[i]是否是=，因为等号左右第一个可能会出现没有带符号的数字(x+2=3x+2,x和3x前面就没有+或者-)。再判断是否是+或者-，最后再判断是不是数字;最后，如果x的系数为0且常数也为0，则有无穷解，若仅x的系数为0，则无解；只要x的系数不为0，则有解，这里把项都移到了等号左边，所以要乘以-1.</p>
+<p>####代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">string solveEquation(string equation)</span><br><span class="line">&#123;</span><br><span class="line">    string ans;</span><br><span class="line">    int len=equation.size();</span><br><span class="line">    int i=0;</span><br><span class="line">    int x_coefficient=0,Constant=0;</span><br><span class="line">    int sign=1,flag=1;//sign indicates + or -,falg indicate left or right</span><br><span class="line">    for(i=0;i&lt;len;)</span><br><span class="line">    &#123;</span><br><span class="line">        sign=1;</span><br><span class="line">        if(equation[i]==&apos;=&apos;)//must the first,because after the &apos;=&apos;,there might be a &apos;-&apos;</span><br><span class="line">        &#123;</span><br><span class="line">            flag=-1;//all  move to the left,so the right is -</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(equation[i]==&apos;-&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            sign=-1;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(equation[i]==&apos;+&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            sign=1;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(i&lt;len&amp;&amp;(equation[i]&gt;=&apos;0&apos;&amp;&amp;equation[i]&lt;=&apos;9&apos;))</span><br><span class="line">           &#123;</span><br><span class="line">               int temp=0;//to store the coefficient</span><br><span class="line">               while(i&lt;len&amp;&amp;(equation[i]&gt;=&apos;0&apos;&amp;&amp;equation[i]&lt;=&apos;9&apos;))</span><br><span class="line">                     &#123;</span><br><span class="line">                         temp=temp*10+equation[i]-&apos;0&apos;;</span><br><span class="line">                         i++;</span><br><span class="line">                     &#125;</span><br><span class="line">                if(i&lt;len&amp;&amp;equation[i]==&apos;x&apos;)</span><br><span class="line">                &#123;</span><br><span class="line">                    x_coefficient+=(temp*sign*flag);</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                    Constant+=(temp*sign*flag);</span><br><span class="line">           &#125;</span><br><span class="line">        else//x indicate 1*x;-x indicate -1*x</span><br><span class="line">        &#123;</span><br><span class="line">            x_coefficient+=(sign*flag);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(x_coefficient==0&amp;&amp;Constant==0)</span><br><span class="line">        ans=&quot;Infinite solutions&quot;;</span><br><span class="line">    else if(x_coefficient==0)</span><br><span class="line">        ans=&quot;No solution&quot;;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        ans=&quot;x=&quot;;</span><br><span class="line">        ans+=to_string(Constant*(-1)/x_coefficient);//for all moving to the left,so,ans should multiply -1.</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-640-Solve-the-Equation/" data-id="cjbs0ki6k0004yq55aj8anfwg" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Math-Medium-29-Divide-Two-Integers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Math-Medium-29-Divide-Two-Integers/" class="article-date">
+  <time datetime="2017-12-29T14:12:08.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Math-Medium-29-Divide-Two-Integers/">[Math_Medium]29. Divide Two Integers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###原题：<a href="https://leetcode.com/problems/divide-two-integers/description/" target="_blank" rel="noopener">29. Divide Two Integers</a></p>
+<blockquote>
+<p>Divide two integers without using multiplication, division and mod operator.<br>If it is overflow, return MAX_INT.</p>
+<p>####题目大意：不用乘号和除号，取余实现两个数相除</p>
+<p>####解题思路：</p>
+<ol>
+<li>刚开始打算直接不停地减，直到把被除数减为0止，担心当数比较大时可能会超时，但还是打算先试一波：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int divide(int dividend, int divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        if(divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1))</span><br><span class="line">            return INT_MAX;</span><br><span class="line">        int sign=((dividend&lt;0)^(divisor&gt;0))?1:-1;</span><br><span class="line">        if(dividend&lt;0)</span><br><span class="line">            dividend=-dividend;</span><br><span class="line">        if(divisor&lt;0)</span><br><span class="line">            divisor=-divisor;</span><br><span class="line">        int ans=0;</span><br><span class="line">        while(dividend-divisor&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            dividend-=divisor;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(dividend-divisor==0)</span><br><span class="line">            ans++;</span><br><span class="line">        ans*=sign;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/9070639-3702636046c51ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="time_Exceeded.png"><br><strong>结果超时，因此得换一个思路，既然不能一个一个减，我们可以一次性减多个</strong></p>
+<ol>
+<li>对于被除数a和除数b，我们可以先a-b,如果大于0，再a-2<em>b,再a-2</em>(2*b),b每次翻倍，当不能再减后，a-=b;再从a-b开始<br>比如11/3,先10-3，发现大于0，将3扩大2倍为6，再10-6，发现还是大于0，于是将6扩大2倍即12，再11-12，发现小于0，于是不能再减了，最多可以减到6，即11-6=5，还剩下5，前面翻倍操作进行了2次，相当于减了4次，每翻一倍，操作2次。于是现在用5-3，发现大于0，于是将3扩大2倍为6,而5-6&lt;0,所以只能减3，这里没有进行翻倍，操作了一次；还剩下5-3=2，小于3，此时已经减完了；共减了2+1=3次，即商为3；</li>
+<li>特殊情况：除数为0，返回最大值；当被除数为-2147483648(最小负数),除数为-1，此时商应该是2147483648.但int最大值为2147484647，超限，于是返回最大值。<br>####代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int divide(int dividend, int divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        if(divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1))</span><br><span class="line">            return INT_MAX;</span><br><span class="line">        int sign=(dividend&lt;0)^(divisor&gt;0)?1:-1;</span><br><span class="line">        if(dividend&lt;0)</span><br><span class="line">            dividend=-dividend;</span><br><span class="line">        if(divisor&lt;0)</span><br><span class="line">            divisor=-divisor;</span><br><span class="line">        int dividend_1=dividend,divisor_1=divisor;</span><br><span class="line">        int step=1,ans=0;</span><br><span class="line">        while(dividend_1-divisor&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            divisor_1=divisor;</span><br><span class="line">            step=1;</span><br><span class="line">            while(dividend_1-(divisor_1&lt;&lt;1)&gt;0)</span><br><span class="line">            &#123;</span><br><span class="line">                divisor_1&lt;&lt;=1;</span><br><span class="line">                step++;</span><br><span class="line">            &#125;</span><br><span class="line">            dividend_1-=divisor_1;</span><br><span class="line">            ans+=(1&lt;&lt;(step-1));</span><br><span class="line">        &#125;</span><br><span class="line">        if(dividend_1-divisor==0)</span><br><span class="line">            ans++;</span><br><span class="line">        ans*=sign;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-29-Divide-Two-Integers/" data-id="cjbs0ki650000yq55pjb4hx5m" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu常见问题及配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/29/Ubuntu常见问题及配置/" class="article-date">
+  <time datetime="2017-12-29T13:50:41.000Z" itemprop="datePublished">2017-12-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/Ubuntu常见问题及配置/">Ubuntu常见问题及配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p><strong>Ubuntu时间与Windows的时间总是不一样</strong><br>其实仔细看我们可以发现两个系统的时间总是相差8个小时，原因在于：Windows把系统硬件时间当做本地时间，即操作系统中显示的时间跟BIOS中显示的时间是一样的；而Linux/Unix/Mac把硬件时间当做UTC(Universal Tine Coordinated,协调世界时),操作系统显示的时间是硬件时间经过换算得来的，比如说，北京时间是GMT+8(Greenwich Mean Time,格林尼治时间)，所以系统中显示的时间是硬件时间加8.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ntpdate  <span class="comment">//先在Ubuntu上更新时间，确保时间无误</span></span><br><span class="line">sudo ntpdate time.windows.com</span><br><span class="line">sudo hwclock --localtime --systohc  <span class="comment">//将时间更新到硬件上</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Python3的安装</strong><br>因为Ubuntu自带Python2，而Python3与Python2又传说有较大区别，所以作为初学者还是先学Python3，后面需要再去看Python2</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3 <span class="comment">//此时会进入Python3的安装，</span></span><br><span class="line">python --version <span class="comment">//发现此时还是Python2</span></span><br><span class="line"><span class="comment">//因为Ubuntu的很多底层都是采用的Python2，Python2和Python3是互不兼容的，</span></span><br><span class="line"><span class="comment">///所以此时不能卸载Python2，需要将默认Python指向Python3(其默认安装目录：/usr/local/lib)</span></span><br><span class="line">cd /usr/bin   <span class="comment">//进入python link目录</span></span><br><span class="line">sudo rm python  <span class="comment">//删除Python link文件</span></span><br><span class="line">sudo ln -s /usr/bin/python3.5 /usr/bin/python  <span class="comment">//新建链接文件，并指向咱们新装的Python3.5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.1  <strong>内置Python2.7再装Python3注意+Ubuntu安装软件时出现处理软件包python-setuptools出错</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~$ sudo apt-get install google-chrome-stable </span><br><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成       </span><br><span class="line">google-chrome-stable 已经是最新版 (63.0.3239.108-1)。</span><br><span class="line">升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 358 个软件包未被升级。</span><br><span class="line">有 6 个软件包没有被完全安装或卸载。</span><br><span class="line">解压缩后会消耗 0 B 的额外空间。</span><br><span class="line">N: 忽略‘google-chrome.list.1’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效</span><br><span class="line">您希望继续执行吗？ [Y/n] Y</span><br><span class="line">正在设置 python-wheel (0.29.0-1) ...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/bin/pycompile&quot;, line 35, in &lt;module&gt;</span><br><span class="line">    from debpython.version import SUPPORTED, debsorted, vrepr, \</span><br><span class="line">  File &quot;/usr/share/python/debpython/version.py&quot;, line 24, in &lt;module&gt;</span><br><span class="line">    from ConfigParser import SafeConfigParser</span><br><span class="line">ImportError: No module named &apos;ConfigParser&apos;</span><br><span class="line">dpkg: 处理软件包 python-wheel (--configure)时出错：</span><br><span class="line"> 子进程 已安装 post-installation 脚本 返回错误状态 1</span><br><span class="line">正在设置 python-pkg-resources (26.1.1-1) ...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/bin/pycompile&quot;, line 35, in &lt;module&gt;</span><br><span class="line">    from debpython.version import SUPPORTED, debsorted, vrepr, \</span><br><span class="line">  File &quot;/usr/share/python/debpython/version.py&quot;, line 24, in &lt;module&gt;</span><br><span class="line">    from ConfigParser import SafeConfigParser</span><br><span class="line">ImportError: No module named &apos;ConfigParser&apos;</span><br><span class="line">dpkg: 处理软件包 python-pkg-resources (--configure)时出错：</span><br><span class="line"> 子进程 已安装 post-installation 脚本 返回错误状态 1</span><br><span class="line">正在设置 python-m2crypto (0.24.0-1) ...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/bin/pycompile&quot;, line 35, in &lt;module&gt;</span><br><span class="line">    from debpython.version import SUPPORTED, debsorted, vrepr, \</span><br><span class="line">  File &quot;/usr/share/python/debpython/version.py&quot;, line 24, in &lt;module&gt;</span><br><span class="line">    from ConfigParser import SafeConfigParser</span><br><span class="line">ImportError: No module named &apos;ConfigParser&apos;</span><br><span class="line">dpkg: 处理软件包 python-m2crypto (--configure)时出错：</span><br><span class="line"> 子进程 已安装 post-installation 脚本 返回错误状态 1</span><br><span class="line">dpkg: 依赖关系问题使得 shadowsocks 的配置工作不能继续：</span><br><span class="line"> shadowsocks 依赖于 python-pkg-resources；然而：</span><br><span class="line">  软件包 python-pkg-resources 尚未配置。</span><br><span class="line"> shadowsocks 依赖于 python-m2crypto；然而：</span><br><span class="line">  软件包 python-m2crypto 尚未配置。</span><br><span class="line"></span><br><span class="line">dpkg: 处理软件包 shadowsocks (--configure)时出错：</span><br><span class="line"> 依赖关系问题 - 仍未被配置</span><br><span class="line">正在设置 python-pip (8.1.2-2ubuntu0.1) ...</span><br><span class="line">由于已经达到 MaxReports 限制，没有写入 apport 报告。</span><br><span class="line">                                                    Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/bin/pycompile&quot;, line 35, in &lt;module&gt;</span><br><span class="line">    from debpython.version import SUPPORTED, debsorted, vrepr, \</span><br><span class="line">  File &quot;/usr/share/python/debpython/version.py&quot;, line 24, in &lt;module&gt;</span><br><span class="line">    from ConfigParser import SafeConfigParser</span><br><span class="line">ImportError: No module named &apos;ConfigParser&apos;</span><br><span class="line">dpkg: 处理软件包 python-pip (--configure)时出错：</span><br><span class="line"> 子进程 已安装 post-installation 脚本 返回错误状态 1</span><br><span class="line">dpkg: 依赖关系问题使得 python-setuptools 的配置工作不能继续：</span><br><span class="line"> python-setuptools 依赖于 python-pkg-resources (= 26.1.1-1)；然而：</span><br><span class="line">  软件包 python-pkg-resources 尚未配置。</span><br><span class="line"></span><br><span class="line">由于已经达到 MaxReports 限制，没有写入 apport 报告。</span><br><span class="line">                                                    由于已经达到 MaxReports 限制，没有写入 apport 报告。</span><br><span class="line">                        dpkg: 处理软件包 python-setuptools (--configure)时出错：</span><br><span class="line"> 依赖关系问题 - 仍未被配置</span><br><span class="line">在处理时有错误发生：</span><br><span class="line"> python-wheel</span><br><span class="line"> python-pkg-resources</span><br><span class="line"> python-m2crypto</span><br><span class="line"> shadowsocks</span><br><span class="line"> python-pip</span><br><span class="line"> python-setuptools</span><br><span class="line">E: Sub-process /usr/bin/dpkg returned an error code (1)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>原因如下：我们在内置Python2的情况下安装Python3时，只是把原来Python2的Python link文件利用ls转移到Python3，但是其配置目录没有修改。方法如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get clean</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install --reinstall python-minimal python-lockfile</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.2 <strong>内置Python2.7再装Python3注意 + <font size="7"> PIP版本问题 </font></strong></p>
+<ul>
+<li><p>问题重现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You are using pip version 8.1.2, however version 9.0.1 is available.</span><br><span class="line">You should consider upgrading via the &apos;pip install --upgrade pip&apos; command.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以发现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~$ sudo pip3 --version</span><br><span class="line">pip 9.0.1 from /home/hello_world/.local/lib/python3.5/site-packages (python 3.5)</span><br><span class="line">hello_world@LG:~$ sudo -H pip3 --version</span><br><span class="line">pip 8.1.2 from /usr/lib/python3/dist-packages (python 3.5)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -H pip3 install --upgrade pip</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~$ sudo -H pip3 install --upgrade pip</span><br><span class="line">Collecting pip</span><br><span class="line">  Downloading pip-9.0.1-py2.py3-none-any.whl (1.3MB)</span><br><span class="line">    100% |████████████████████████████████| 1.3MB 762kB/s </span><br><span class="line">Installing collected packages: pip</span><br><span class="line">  Found existing installation: pip 8.1.2</span><br><span class="line">    Not uninstalling pip at /usr/lib/python3/dist-packages, outside environment /usr</span><br><span class="line">Successfully installed pip-9.0.1</span><br><span class="line">hello_world@LG:~$ sudo -H pip3 --version</span><br><span class="line">pip 9.0.1 from /usr/local/lib/python3.5/dist-packages (python 3.5)</span><br><span class="line">hello_world@LG:~$ sudo pip3 --version</span><br><span class="line">pip 9.0.1 from /home/hello_world/.local/lib/python3.5/site-packages (python 3.5)</span><br><span class="line">hello_world@LG:~$</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/29/Ubuntu常见问题及配置/" data-id="cjbs0ki6t0008yq55hz6xyzaz" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Ubuntu快捷键" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -105,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Ubuntu快捷键/" data-id="cjbrz4yn10000fd55ynwpyaou" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/29/Ubuntu快捷键/" data-id="cjbs0ki6w000byq55hm2q77yl" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -141,7 +529,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/my-first-post/" data-id="cjbryzv2400018j55qs90ph89" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/29/my-first-post/" data-id="cjbs0ki73000gyq55i3iz24kr" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -186,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/hello-world/" data-id="cjbryzv1y00008j55q37i6yme" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/28/hello-world/" data-id="cjbs0ki6z000dyq553x9ucu1l" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -204,9 +592,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
     </div>
   </div>
 
@@ -219,7 +607,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -229,20 +617,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/12/29/Ubuntu快捷键/">Ubuntu快捷键</a>
+            <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/">[Math_Medium]672. Bulb Switcher II</a>
           </li>
         
           <li>
-            <a href="/2017/12/29/my-first-post/">my_first_post</a>
+            <a href="/2017/12/29/Math-Medium-319-Bulb-Switcher/">[Math_Medium]319. Bulb Switcher</a>
           </li>
         
           <li>
-            <a href="/2017/12/28/hello-world/">Hello World</a>
+            <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/">[Math_Easy]728.Self Dividing Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-670-Maximum-Swap/">[Math_Medium]670.Maximum Swap</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/">[Math_Medium]640.Solve the Equation</a>
           </li>
         
       </ul>
@@ -258,7 +654,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Qiulin Zhang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
