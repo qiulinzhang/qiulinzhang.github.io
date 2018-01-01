@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="###一、字符编码  ASCII编码，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的 Unicode编码，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以">
+<meta name="description" content="一、字符编码 ASCII编码，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的 Unicode编码，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以把英文字">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python基础-字符串和编码">
 <meta property="og:url" content="http://yoursite.com/2018/01/01/Python基础-字符串和编码/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
-<meta property="og:description" content="###一、字符编码  ASCII编码，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的 Unicode编码，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以">
-<meta property="og:updated_time" content="2018-01-01T15:52:45.836Z">
+<meta property="og:description" content="一、字符编码 ASCII编码，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的 Unicode编码，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以把英文字">
+<meta property="og:updated_time" content="2018-01-01T15:55:16.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础-字符串和编码">
-<meta name="twitter:description" content="###一、字符编码  ASCII编码，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的 Unicode编码，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以">
+<meta name="twitter:description" content="一、字符编码 ASCII编码，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的 Unicode编码，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以把英文字">
 
 
 
@@ -321,8 +321,7 @@
       
 
       
-        <p>###一、字符编码</p>
-<ol>
+        <h3 id="一、字符编码"><a href="#一、字符编码" class="headerlink" title="一、字符编码"></a>一、字符编码</h3><ol>
 <li><strong>ASCII编码</strong>，由美国人发明，长度为1个字节，8位，可表示 $2^8-1=255$个，对于全英文书写已经足够，若加上其他语言，显然是不够的</li>
 <li><strong>Unicode编码</strong>，把所有的语言都统一到一套编码里面，通常为2个字节，对于非常偏僻的字节就需要4个字节,这样就出现一个问题：如果是全英文书写的话，Unicode要比ASCII编码多用一倍的存储空间，显然在存储和传输上是不划算的，对此，可以把英文字母编为一个字节，汉字编为3个字节，只有很生僻的字才编为4-6个字节</li>
 <li><strong>UTF-8</strong>,(8-bit Unicode Transformation Format),是一种针对Unicode的可变长度字符编码用1-6个字节编码Unicode字符</li>
@@ -331,7 +330,7 @@
 <ul>
 <li>在计算机内存中，统一用Unicode编码，当需要保存到硬盘或进行传输时，就转化为UTF-8编码</li>
 <li>e.g.1 当用记事本在编辑一个TXT文件时，首先信息是以UTF-8的形式保存在硬盘里，当我们进行编辑时，即当我们要从信息从硬盘中读到内存中时，此时计算机就会把UTF-8字符转换为Unicode字符，等编辑完成后，保存时再把Unicode字符转换为UTF-8格式保存到文件中。</li>
-<li>e.g.2 浏览网页时，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器。<br>####二、Python的字符串</li>
+<li>e.g.2 浏览网页时，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器。<h4 id="二、Python的字符串"><a href="#二、Python的字符串" class="headerlink" title="二、Python的字符串"></a>二、Python的字符串</h4></li>
 </ul>
 <ol>
 <li><p>Python3中，字符串是以Unicode编码，即，Python支持多语言</p>
@@ -480,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -541,6 +549,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、字符编码"><span class="nav-number">1.</span> <span class="nav-text">一、字符编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二、Python的字符串"><span class="nav-number">1.1.</span> <span class="nav-text">二、Python的字符串</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
