@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -67,6 +67,138 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-循环" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/循环/" class="article-date">
+  <time datetime="2018-01-03T12:45:08.000Z" itemprop="datePublished">2018-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/循环/">判断与循环及字典</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NOTICE-Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号"><a href="#NOTICE-Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号" class="headerlink" title="NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}"></a>NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}</h1><h3 id="一、判断"><a href="#一、判断" class="headerlink" title="一、判断"></a>一、判断</h3><ol>
+<li><strong>注意每个if或else或elif语句后面要加一个冒号:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">age=int(input(&apos;please input your age&apos;))</span><br><span class="line">if age &gt;= 18:</span><br><span class="line">    print(&apos;your age is&apos;,age)</span><br><span class="line">    print(&apos;adult&apos;)</span><br><span class="line">elif age &gt;= 6:</span><br><span class="line">    print(&apos;your age is&apos;,age)</span><br><span class="line">    print(&apos;teenager&apos;)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;kid&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>执行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop.py </span><br><span class="line">please input your age20</span><br><span class="line">your age is 20</span><br><span class="line">adult</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意：从上面可以看到，if语句自带类似C语言大括号功能，若满足条件，会把下面所有的都执行</strong></p>
+<ul>
+<li>**并注意:input函数的返回类型是str,所以应该用int强制类型转换</li>
+</ul>
+<ol>
+<li>eg<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">height=1.75</span><br><span class="line">weight=80.5</span><br><span class="line">BMI=weight*weight/height</span><br><span class="line">if BMI&lt;18.5:</span><br><span class="line">    print(&apos;Too thin&apos;)</span><br><span class="line">elif BMI&gt;=18.5 and BMI&lt;=25:</span><br><span class="line">    print(&apos;ordinary&apos;)</span><br><span class="line">elif BMI&gt;25  and BMI&lt;28:</span><br><span class="line">    print(&apos;a liitle weight&apos;)</span><br><span class="line">elif BMI&gt;=28 and BMI&lt;=32:</span><br><span class="line">    print(&apos;overweight&apos;)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;Too overweight&apos;)</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>注意与用and表示，不用&amp;&amp;；同理，||和!分别代表或，非</strong><h3 id="二、循环"><a href="#二、循环" class="headerlink" title="二、循环"></a>二、循环</h3></li>
+</ul>
+<ol>
+<li>for x in …循环就是把…的每个元素带入变量x,然后执行缩进块语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">names=[&apos;A&apos;,&apos;B&apos;,&apos;C&apos;]</span><br><span class="line">for name in names:</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">A</span><br><span class="line">B</span><br><span class="line">C</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>Python提供range()函数,可以生成一个整数序列，再通过list()转换为list,例如：range(5)是生成从0开始小于5的整数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(5))</span><br><span class="line">[0, 1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>计算0-100数的和<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">for x in range(101):</span><br><span class="line">    sum+=x</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>while循环，只要条件满足就不断运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">n=100</span><br><span class="line">while n&gt;=0:</span><br><span class="line">    sum+=n</span><br><span class="line">    n-=1</span><br><span class="line">n-=1</span><br><span class="line">print(sum)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">5050</span><br><span class="line">-2</span><br></pre></td></tr></table></figure>
+<p><strong>注意缩进，同一层次的语句应该有相同的缩进</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">n=100</span><br><span class="line">while n&gt;=0:</span><br><span class="line">    sum+=n</span><br><span class="line">    n-=1</span><br><span class="line">    n-=1</span><br><span class="line">print(sum)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">2550</span><br><span class="line">-2</span><br></pre></td></tr></table></figure>
+<p><strong>看下面n的缩进就会报错</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">n=100</span><br><span class="line">while n&gt;=0:</span><br><span class="line">    sum+=n</span><br><span class="line">    n-=1</span><br><span class="line">  n-=1</span><br><span class="line">print(sum)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">  File &quot;loop1.py&quot;, line 6</span><br><span class="line">    n-=1</span><br><span class="line">       ^</span><br><span class="line">IndentationError: unindent does not match any outer indentation level</span><br></pre></td></tr></table></figure>
+<ol>
+<li>break 提前退出循环<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n=1</span><br><span class="line">while n&lt;=100:</span><br><span class="line">    if n&gt;10:</span><br><span class="line">       break</span><br><span class="line">    print(n)</span><br><span class="line">    n+=1</span><br><span class="line">print(&apos;END&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p><strong>注意同一层次语句块缩进</strong></p>
+<ol>
+<li>continue 跳出当次循环，继续执行下一次循环<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n=1</span><br><span class="line">while n&lt;=100:</span><br><span class="line">    n+=1</span><br><span class="line">    if n&gt;10:</span><br><span class="line">       break</span><br><span class="line">    if n%2==0:</span><br><span class="line">       continue</span><br><span class="line">    print(n)</span><br><span class="line">print(&apos;END&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<h3 id="三、dict和set"><a href="#三、dict和set" class="headerlink" title="三、dict和set"></a>三、dict和set</h3><ol>
+<li>dict:dict全称dictionary，其他语言中称为map,使用键-值(key-value)存储，具有极快的查找速度；注意<strong>定义时是大括号{},调用时是中括号[]</strong></li>
+</ol>
+<ul>
+<li><p>例如：先写一个姓名成绩对照表，通过姓名来查成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d=&#123;&apos;Tom&apos;:60,&apos;Jim&apos;:70,&apos;John&apos;:80&#125;</span><br><span class="line">&gt;&gt;&gt; d[&apos;John&apos;]</span><br><span class="line">80</span><br><span class="line">&gt;&gt;&gt; d[&apos;John&apos;]=90</span><br><span class="line">&gt;&gt;&gt; d[&apos;John&apos;]</span><br><span class="line">90</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>避免key不存在的错误，有两种方法，一种是通过in()判断key是否存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;hhh&apos; in d</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通过dict()提供的get()方法，如果key不存在，可以返回None,或自己定义的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d.get(&apos;hhh&apos;)</span><br><span class="line">&gt;&gt;&gt; d.get(&apos;Tom&apos;)</span><br><span class="line">60</span><br><span class="line">&gt;&gt;&gt; d.get(&apos;hhh&apos;,-1)</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+<p><strong>注意：返回None时Python的交互环境不显示结果</strong></p>
+</li>
+</ul>
+</li>
+<li>要删除一个key,使用pop(key)方法，对应的value也会从dict中删除<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d.pop(&apos;Tom&apos;)</span><br><span class="line">60</span><br><span class="line">&gt;&gt;&gt; d</span><br><span class="line">&#123;&apos;Jim&apos;: 70, &apos;John&apos;: 90&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>小总结</strong></p>
+<ul>
+<li>1.1 list使用[],tuple使用(),dict使用{}</li>
+<li>1.2 dict与list相比：查找速度极快，不会随着key的增加而变慢；需要占用大量的内存，内存浪费多</li>
+<li>1.3 dict中key的值是唯一的，不能重复，但list是可以重复的</li>
+</ul>
+<ol>
+<li>set:数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集，并集等等</li>
+</ol>
+<ul>
+<li>重复元素在set中会自动过滤，可通过add(key)添加，可重复添加，但无效果，remove(key)方法可以删除元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s=set([1,1,2,2,3,3])</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; s.add(4)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;1, 2, 3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; s.add(4)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;1, 2, 3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; m=set(3,4,5,6)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: set expected at most 1 arguments, got 4</span><br><span class="line">&gt;&gt;&gt; m=set([3,4,5,6])</span><br><span class="line">&gt;&gt;&gt; m</span><br><span class="line">&#123;3, 4, 5, 6&#125;</span><br><span class="line">&gt;&gt;&gt; m &amp; s</span><br><span class="line">&#123;3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; m |s</span><br><span class="line">&#123;1, 2, 3, 4, 5, 6&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>对于不变对象来说，调用对象自身的任意方法，也不会改变对象自身的内容，相反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&apos;abc&apos;</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&apos;abc&apos;</span><br><span class="line">&gt;&gt;&gt; b=a.replace(&apos;a&apos;,&apos;A&apos;)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&apos;abc&apos;</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">&apos;Abc&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/03/循环/" data-id="cjbz7pgav000jea55iqej1tuy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-使用list和tuple" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -154,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/使用list和tuple/" data-id="cjbxr04fw000sxg55q3fmprva" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/02/使用list和tuple/" data-id="cjbz7pgbi000uea55gx0ojbr7" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -262,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Python基础-字符串和编码/" data-id="cjbxr04fh0007xg558ewjcxr6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Python基础-字符串和编码/" data-id="cjbz7pgar000bea55b1qih5rd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -300,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/test/" data-id="cjbxr04fu000pxg55wbbtjb6f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/test/" data-id="cjbz7pgbk000vea55w1cx0gyy" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -336,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Vim-Markdown可视化编辑/" data-id="cjbxr04fo000hxg550br6s1ro" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/Vim-Markdown可视化编辑/" data-id="cjbz7pgas000dea55s9xw938e" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -400,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-672-Bulb-Switcher-II/" data-id="cjbxr04fi0008xg55tlhjjeyk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-672-Bulb-Switcher-II/" data-id="cjbz7pgah0004ea554wrsiock" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -451,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-319-Bulb-Switcher/" data-id="cjbxr04f90003xg55tywoxn5f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-319-Bulb-Switcher/" data-id="cjbz7pga90001ea55dr54c04k" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -499,7 +631,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" data-id="cjbxr04f20001xg5507q3s6pg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" data-id="cjbz7pga30000ea55ynclm2nz" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -549,7 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/" data-id="cjbxr04ff0005xg55dh2k83rb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/" data-id="cjbz7pgam0005ea55u3zefc2q" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -602,63 +734,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-640-Solve-the-Equation/" data-id="cjbxr04fb0004xg55ctxq8pf1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Math-Medium-29-Divide-Two-Integers" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/29/Math-Medium-29-Divide-Two-Integers/" class="article-date">
-  <time datetime="2017-12-29T14:12:08.000Z" itemprop="datePublished">2017-12-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/leetcode/">LeetCode</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/29/Math-Medium-29-Divide-Two-Integers/">[Math_Medium]29. Divide Two Integers</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###原题：<a href="https://leetcode.com/problems/divide-two-integers/description/" target="_blank" rel="noopener">29. Divide Two Integers</a></p>
-<blockquote>
-<p>Divide two integers without using multiplication, division and mod operator.<br>If it is overflow, return MAX_INT.</p>
-<p>####题目大意：不用乘号和除号，取余实现两个数相除</p>
-<p>####解题思路：</p>
-<ol>
-<li>刚开始打算直接不停地减，直到把被除数减为0止，担心当数比较大时可能会超时，但还是打算先试一波：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int divide(int dividend, int divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        if(divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1))</span><br><span class="line">            return INT_MAX;</span><br><span class="line">        int sign=((dividend&lt;0)^(divisor&gt;0))?1:-1;</span><br><span class="line">        if(dividend&lt;0)</span><br><span class="line">            dividend=-dividend;</span><br><span class="line">        if(divisor&lt;0)</span><br><span class="line">            divisor=-divisor;</span><br><span class="line">        int ans=0;</span><br><span class="line">        while(dividend-divisor&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            dividend-=divisor;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(dividend-divisor==0)</span><br><span class="line">            ans++;</span><br><span class="line">        ans*=sign;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/9070639-3702636046c51ef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="time_Exceeded.png"><br><strong>结果超时，因此得换一个思路，既然不能一个一个减，我们可以一次性减多个</strong></p>
-<ol>
-<li>对于被除数a和除数b，我们可以先a-b,如果大于0，再a-2<em>b,再a-2</em>(2*b),b每次翻倍，当不能再减后，a-=b;再从a-b开始<br>比如11/3,先10-3，发现大于0，将3扩大2倍为6，再10-6，发现还是大于0，于是将6扩大2倍即12，再11-12，发现小于0，于是不能再减了，最多可以减到6，即11-6=5，还剩下5，前面翻倍操作进行了2次，相当于减了4次，每翻一倍，操作2次。于是现在用5-3，发现大于0，于是将3扩大2倍为6,而5-6&lt;0,所以只能减3，这里没有进行翻倍，操作了一次；还剩下5-3=2，小于3，此时已经减完了；共减了2+1=3次，即商为3；</li>
-<li>特殊情况：除数为0，返回最大值；当被除数为-2147483648(最小负数),除数为-1，此时商应该是2147483648.但int最大值为2147484647，超限，于是返回最大值。<br>####代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int divide(int dividend, int divisor)</span><br><span class="line">    &#123;</span><br><span class="line">        if(divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1))</span><br><span class="line">            return INT_MAX;</span><br><span class="line">        int sign=(dividend&lt;0)^(divisor&gt;0)?1:-1;</span><br><span class="line">        if(dividend&lt;0)</span><br><span class="line">            dividend=-dividend;</span><br><span class="line">        if(divisor&lt;0)</span><br><span class="line">            divisor=-divisor;</span><br><span class="line">        int dividend_1=dividend,divisor_1=divisor;</span><br><span class="line">        int step=1,ans=0;</span><br><span class="line">        while(dividend_1-divisor&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            divisor_1=divisor;</span><br><span class="line">            step=1;</span><br><span class="line">            while(dividend_1-(divisor_1&lt;&lt;1)&gt;0)</span><br><span class="line">            &#123;</span><br><span class="line">                divisor_1&lt;&lt;=1;</span><br><span class="line">                step++;</span><br><span class="line">            &#125;</span><br><span class="line">            dividend_1-=divisor_1;</span><br><span class="line">            ans+=(1&lt;&lt;(step-1));</span><br><span class="line">        &#125;</span><br><span class="line">        if(dividend_1-divisor==0)</span><br><span class="line">            ans++;</span><br><span class="line">        ans*=sign;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-29-Divide-Two-Integers/" data-id="cjbxr04ex0000xg55otqhe161" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Math-Medium-640-Solve-the-Equation/" data-id="cjbz7pgbp000wea559d19d3z4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -672,7 +748,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -681,7 +757,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
     </div>
@@ -710,7 +786,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -720,9 +796,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/03/循环/">判断与循环及字典</a>
+          </li>
         
           <li>
             <a href="/2018/01/02/使用list和tuple/">使用list和tuple</a>
@@ -738,10 +818,6 @@
         
           <li>
             <a href="/2017/12/30/Vim-Markdown可视化编辑/">Vim+Markdown可视化编辑</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/29/Math-Medium-672-Bulb-Switcher-II/">[Math_Medium]672. Bulb Switcher II</a>
           </li>
         
       </ul>

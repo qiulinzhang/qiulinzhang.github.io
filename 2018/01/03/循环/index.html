@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>判断与循环及字典 | To Be a Better Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}一、判断 注意每个if或else或elif语句后面要加一个冒号:123456789age=int(input(&amp;apos;please input your age&amp;apos;))if age &amp;gt;= 18:    print(&amp;apos;your age is&amp;apos;,age)    pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断与循环及字典">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/循环/index.html">
+<meta property="og:site_name" content="To Be a Better Us">
+<meta property="og:description" content="NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}一、判断 注意每个if或else或elif语句后面要加一个冒号:123456789age=int(input(&amp;apos;please input your age&amp;apos;))if age &amp;gt;= 18:    print(&amp;apos;your age is&amp;apos;,age)    pr">
+<meta property="og:updated_time" content="2018-01-03T15:21:51.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="判断与循环及字典">
+<meta name="twitter:description" content="NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}一、判断 注意每个if或else或elif语句后面要加一个冒号:123456789age=int(input(&amp;apos;please input your age&amp;apos;))if age &amp;gt;= 18:    print(&amp;apos;your age is&amp;apos;,age)    pr">
+  
+    <link rel="alternate" href="/atom.xml" title="To Be a Better Us" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">To Be a Better Us</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不积跬步无以至千里</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-循环" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/循环/" class="article-date">
+  <time datetime="2018-01-03T12:45:08.000Z" itemprop="datePublished">2018-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      判断与循环及字典
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NOTICE-Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号"><a href="#NOTICE-Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号" class="headerlink" title="NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}"></a>NOTICE:Python是用缩进来表示语句块，同意层次的语句必须有相同的缩进，功能等同于大括号{}</h1><h3 id="一、判断"><a href="#一、判断" class="headerlink" title="一、判断"></a>一、判断</h3><ol>
+<li><strong>注意每个if或else或elif语句后面要加一个冒号:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">age=int(input(&apos;please input your age&apos;))</span><br><span class="line">if age &gt;= 18:</span><br><span class="line">    print(&apos;your age is&apos;,age)</span><br><span class="line">    print(&apos;adult&apos;)</span><br><span class="line">elif age &gt;= 6:</span><br><span class="line">    print(&apos;your age is&apos;,age)</span><br><span class="line">    print(&apos;teenager&apos;)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;kid&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>执行结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop.py </span><br><span class="line">please input your age20</span><br><span class="line">your age is 20</span><br><span class="line">adult</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意：从上面可以看到，if语句自带类似C语言大括号功能，若满足条件，会把下面所有的都执行</strong></p>
+<ul>
+<li>**并注意:input函数的返回类型是str,所以应该用int强制类型转换</li>
+</ul>
+<ol>
+<li>eg<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">height=1.75</span><br><span class="line">weight=80.5</span><br><span class="line">BMI=weight*weight/height</span><br><span class="line">if BMI&lt;18.5:</span><br><span class="line">    print(&apos;Too thin&apos;)</span><br><span class="line">elif BMI&gt;=18.5 and BMI&lt;=25:</span><br><span class="line">    print(&apos;ordinary&apos;)</span><br><span class="line">elif BMI&gt;25  and BMI&lt;28:</span><br><span class="line">    print(&apos;a liitle weight&apos;)</span><br><span class="line">elif BMI&gt;=28 and BMI&lt;=32:</span><br><span class="line">    print(&apos;overweight&apos;)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;Too overweight&apos;)</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>注意与用and表示，不用&amp;&amp;；同理，||和!分别代表或，非</strong><h3 id="二、循环"><a href="#二、循环" class="headerlink" title="二、循环"></a>二、循环</h3></li>
+</ul>
+<ol>
+<li>for x in …循环就是把…的每个元素带入变量x,然后执行缩进块语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">names=[&apos;A&apos;,&apos;B&apos;,&apos;C&apos;]</span><br><span class="line">for name in names:</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">A</span><br><span class="line">B</span><br><span class="line">C</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>Python提供range()函数,可以生成一个整数序列，再通过list()转换为list,例如：range(5)是生成从0开始小于5的整数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list(range(5))</span><br><span class="line">[0, 1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>计算0-100数的和<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">for x in range(101):</span><br><span class="line">    sum+=x</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>while循环，只要条件满足就不断运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">n=100</span><br><span class="line">while n&gt;=0:</span><br><span class="line">    sum+=n</span><br><span class="line">    n-=1</span><br><span class="line">n-=1</span><br><span class="line">print(sum)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">5050</span><br><span class="line">-2</span><br></pre></td></tr></table></figure>
+<p><strong>注意缩进，同一层次的语句应该有相同的缩进</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">n=100</span><br><span class="line">while n&gt;=0:</span><br><span class="line">    sum+=n</span><br><span class="line">    n-=1</span><br><span class="line">    n-=1</span><br><span class="line">print(sum)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">2550</span><br><span class="line">-2</span><br></pre></td></tr></table></figure>
+<p><strong>看下面n的缩进就会报错</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum=0</span><br><span class="line">n=100</span><br><span class="line">while n&gt;=0:</span><br><span class="line">    sum+=n</span><br><span class="line">    n-=1</span><br><span class="line">  n-=1</span><br><span class="line">print(sum)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">  File &quot;loop1.py&quot;, line 6</span><br><span class="line">    n-=1</span><br><span class="line">       ^</span><br><span class="line">IndentationError: unindent does not match any outer indentation level</span><br></pre></td></tr></table></figure>
+<ol>
+<li>break 提前退出循环<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n=1</span><br><span class="line">while n&lt;=100:</span><br><span class="line">    if n&gt;10:</span><br><span class="line">       break</span><br><span class="line">    print(n)</span><br><span class="line">    n+=1</span><br><span class="line">print(&apos;END&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p><strong>注意同一层次语句块缩进</strong></p>
+<ol>
+<li>continue 跳出当次循环，继续执行下一次循环<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n=1</span><br><span class="line">while n&lt;=100:</span><br><span class="line">    n+=1</span><br><span class="line">    if n&gt;10:</span><br><span class="line">       break</span><br><span class="line">    if n%2==0:</span><br><span class="line">       continue</span><br><span class="line">    print(n)</span><br><span class="line">print(&apos;END&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hello_world@LG:~/Python$ python3 loop1.py </span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<h3 id="三、dict和set"><a href="#三、dict和set" class="headerlink" title="三、dict和set"></a>三、dict和set</h3><ol>
+<li>dict:dict全称dictionary，其他语言中称为map,使用键-值(key-value)存储，具有极快的查找速度；注意<strong>定义时是大括号{},调用时是中括号[]</strong></li>
+</ol>
+<ul>
+<li><p>例如：先写一个姓名成绩对照表，通过姓名来查成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d=&#123;&apos;Tom&apos;:60,&apos;Jim&apos;:70,&apos;John&apos;:80&#125;</span><br><span class="line">&gt;&gt;&gt; d[&apos;John&apos;]</span><br><span class="line">80</span><br><span class="line">&gt;&gt;&gt; d[&apos;John&apos;]=90</span><br><span class="line">&gt;&gt;&gt; d[&apos;John&apos;]</span><br><span class="line">90</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>避免key不存在的错误，有两种方法，一种是通过in()判断key是否存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;hhh&apos; in d</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通过dict()提供的get()方法，如果key不存在，可以返回None,或自己定义的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d.get(&apos;hhh&apos;)</span><br><span class="line">&gt;&gt;&gt; d.get(&apos;Tom&apos;)</span><br><span class="line">60</span><br><span class="line">&gt;&gt;&gt; d.get(&apos;hhh&apos;,-1)</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+<p><strong>注意：返回None时Python的交互环境不显示结果</strong></p>
+</li>
+</ul>
+</li>
+<li>要删除一个key,使用pop(key)方法，对应的value也会从dict中删除<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d.pop(&apos;Tom&apos;)</span><br><span class="line">60</span><br><span class="line">&gt;&gt;&gt; d</span><br><span class="line">&#123;&apos;Jim&apos;: 70, &apos;John&apos;: 90&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>小总结</strong></p>
+<ul>
+<li>1.1 list使用[],tuple使用(),dict使用{}</li>
+<li>1.2 dict与list相比：查找速度极快，不会随着key的增加而变慢；需要占用大量的内存，内存浪费多</li>
+<li>1.3 dict中key的值是唯一的，不能重复，但list是可以重复的</li>
+</ul>
+<ol>
+<li>set:数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集，并集等等</li>
+</ol>
+<ul>
+<li>重复元素在set中会自动过滤，可通过add(key)添加，可重复添加，但无效果，remove(key)方法可以删除元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s=set([1,1,2,2,3,3])</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; s.add(4)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;1, 2, 3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; s.add(4)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;1, 2, 3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; m=set(3,4,5,6)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: set expected at most 1 arguments, got 4</span><br><span class="line">&gt;&gt;&gt; m=set([3,4,5,6])</span><br><span class="line">&gt;&gt;&gt; m</span><br><span class="line">&#123;3, 4, 5, 6&#125;</span><br><span class="line">&gt;&gt;&gt; m &amp; s</span><br><span class="line">&#123;3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; m |s</span><br><span class="line">&#123;1, 2, 3, 4, 5, 6&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>对于不变对象来说，调用对象自身的任意方法，也不会改变对象自身的内容，相反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=&apos;abc&apos;</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&apos;abc&apos;</span><br><span class="line">&gt;&gt;&gt; b=a.replace(&apos;a&apos;,&apos;A&apos;)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&apos;abc&apos;</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">&apos;Abc&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/03/循环/" data-id="cjbz7pgav000jea55iqej1tuy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/02/使用list和tuple/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">使用list和tuple</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">Ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Python/" style="font-size: 10px;">Python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/03/循环/">判断与循环及字典</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/02/使用list和tuple/">使用list和tuple</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/01/Python基础-字符串和编码/">Python基础-字符串和编码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/Vim-Markdown可视化编辑/">Vim+Markdown可视化编辑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Qiulin Zhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
