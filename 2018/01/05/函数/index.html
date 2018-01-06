@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="库函数名可以用变量替代 12345&amp;gt;&amp;gt;&amp;gt; abs(-100)100&amp;gt;&amp;gt;&amp;gt; a=abs&amp;gt;&amp;gt;&amp;gt; a(-1)1  在Python中，定义一个函数要用def语句，依次写出函数名，括号，括号中的参数和冒号:,然后在缩进块中编写函数体，函数的返回值用return. 123456def my_abs(x):    if x&amp;gt;=0:       ret">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/函数/index.html">
+<meta property="og:site_name" content="To Be a Better Us">
+<meta property="og:description" content="库函数名可以用变量替代 12345&amp;gt;&amp;gt;&amp;gt; abs(-100)100&amp;gt;&amp;gt;&amp;gt; a=abs&amp;gt;&amp;gt;&amp;gt; a(-1)1  在Python中，定义一个函数要用def语句，依次写出函数名，括号，括号中的参数和冒号:,然后在缩进块中编写函数体，函数的返回值用return. 123456def my_abs(x):    if x&amp;gt;=0:       ret">
+<meta property="og:updated_time" content="2018-01-06T11:28:14.334Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数">
+<meta name="twitter:description" content="库函数名可以用变量替代 12345&amp;gt;&amp;gt;&amp;gt; abs(-100)100&amp;gt;&amp;gt;&amp;gt; a=abs&amp;gt;&amp;gt;&amp;gt; a(-1)1  在Python中，定义一个函数要用def语句，依次写出函数名，括号，括号中的参数和冒号:,然后在缩进块中编写函数体，函数的返回值用return. 123456def my_abs(x):    if x&amp;gt;=0:       ret">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/05/函数/"/>
+
+
+
+
+
+  <title>函数 | To Be a Better Us</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">To Be a Better Us</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不积跬步无以至千里</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiulin Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Be a Better Us">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T22:20:26+08:00">
+                2018-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><p>库函数名可以用变量替代</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; abs(-100)</span><br><span class="line">100</span><br><span class="line">&gt;&gt;&gt; a=abs</span><br><span class="line">&gt;&gt;&gt; a(-1)</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>在Python中，定义一个函数要用def语句，依次写出函数名，括号，括号中的参数和冒号:,然后在缩进块中编写函数体，函数的返回值用return.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def my_abs(x):</span><br><span class="line">    if x&gt;=0:</span><br><span class="line">       return x</span><br><span class="line">    else: </span><br><span class="line">       return -x</span><br><span class="line">print(my_abs(-9))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>在Python交互环境中定义函数时，注意Python会出现…的提示。函数定义结束后需要按两次回车重新回到&gt;&gt;&gt;提示符下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def my_abs(x):</span><br><span class="line">...     if x&gt;=0:</span><br><span class="line">...        return x</span><br><span class="line">...     else:</span><br><span class="line">...        return -x</span><br><span class="line">... </span><br><span class="line">&gt;&gt;&gt; my_abs(-90)</span><br><span class="line">90</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如上，我们已经把my_abs()函数保存在function.py文件中，那么可以在该文件的当前目录下启动Python解释器，使用<strong>from function import my_abs</strong>,注意function是文件名，不含py扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from function import myi_abs</span><br><span class="line">&gt;&gt;&gt; myi_abs(-999)</span><br><span class="line">999</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>空函数，可以使用pass语句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if age &gt; =18</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>缺少了pass代码运行就有语法错误</strong></li>
+</ul>
+<ol>
+<li>对函数参数做检查，只允许整数和浮点数类型的参数。数据类型检查可以使用内置函数isinstance()实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def myi_abs(x):</span><br><span class="line">    if not isinstance(x,(int,float)):</span><br><span class="line">       raise TypeError(&apos;bad operand type&apos;)</span><br><span class="line">    if x&gt;=0:</span><br><span class="line">       return x</span><br><span class="line">    else:</span><br><span class="line">       return -x</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myi_abs(&apos;A&apos;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">  File &quot;/home/hello_world/Python/function.py&quot;, line 3, in myi_abs</span><br><span class="line">    raise TypeError(&apos;bad operand type&apos;)</span><br><span class="line">TypeError: bad operand type</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里用到的错误和异常后面会学到</li>
+</ul>
+<ol>
+<li>返回多个值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def move(x,y,step,angle=0):</span><br><span class="line">    nx=x+step * math.cos(angle)</span><br><span class="line">    ny=y-step * math.sin(angle)</span><br><span class="line">    return nx,ny</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import math</span><br><span class="line">&gt;&gt;&gt; x,y=move(100,100,60, math.pi/6)</span><br><span class="line">&gt;&gt;&gt; print(x,y)</span><br><span class="line">151.96152422706632 70.0</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>其实这只是一种假象，Python函数返回的仍然是单一值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from function import move</span><br><span class="line">&gt;&gt;&gt; import math</span><br><span class="line">&gt;&gt;&gt; r= move(100,100,60,math.pi/60)</span><br><span class="line">&gt;&gt;&gt; print(r)</span><br><span class="line">(159.91777208527444, 96.85984262542337)</span><br></pre></td></tr></table></figure>
+<p>以小括号包围，<strong>表明这是一个tuple</strong>，在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值。函数可以同时返回多个值，但其实就是一个tuple。</p>
+</li>
+</ul>
+<ol>
+<li><strong>默认参数的设置</strong></li>
+</ol>
+<ul>
+<li>必选参数在前，默认参数在后（如果默认参数在前会报错，造成调用混乱）</li>
+<li>当函数有多个参数时，把变化大的参数放在前面，变化小的参数放后面，把变化小的参数作为默认参数</li>
+<li><p>好处：降低调用函数的难度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def enroll(name,gender,age=6,city=&apos;Beijing&apos;):</span><br><span class="line">print(&apos;name:&apos;,name)</span><br><span class="line">print(&apos;gender:%s\nage:%s\ncity:%s\n&apos;%(gender,age,city))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; enroll(&apos;Tom&apos;,&apos;F&apos;)</span><br><span class="line">name: Tom</span><br><span class="line">gender:F</span><br><span class="line">age:6</span><br><span class="line">city:Beijing</span><br><span class="line">&gt;&gt;&gt; enroll(&apos;Jack&apos;,&apos;M&apos;,7)</span><br><span class="line">name: Jack</span><br><span class="line">gender:M</span><br><span class="line">age:7</span><br><span class="line">city:Beijing</span><br><span class="line">&gt;&gt;&gt; enroll(&apos;jack&apos;,&apos;M&apos;,8,&apos;Shanghai&apos;)</span><br><span class="line">name: jack</span><br><span class="line">gender:M</span><br><span class="line">age:8</span><br><span class="line">city:Shanghai</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>也可以不按顺序提供部分参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; enroll(&apos;Tom&apos;,&apos;M&apos;,city=&apos;Shanghai&apos;)</span><br><span class="line">name: Tom</span><br><span class="line">gender:M</span><br><span class="line">age:6</span><br><span class="line">city:Shanghai</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; enroll(gender=&apos;F&apos;,name=&apos;Tom&apos;)</span><br><span class="line">name: Tom</span><br><span class="line">gender:F</span><br><span class="line">age:6</span><br><span class="line">city:Beijing</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>默认参数必须指向不变对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def add_end(L=[]):</span><br><span class="line">  L.append(&apos;END&apos;)</span><br><span class="line">  return L</span><br></pre></td></tr></table></figure>
+<p>当正常调用时，结果正确</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from fun_default import add_end</span><br><span class="line">&gt;&gt;&gt; add_end([1,2,3])</span><br><span class="line">[1, 2, 3, &apos;END&apos;]</span><br></pre></td></tr></table></figure>
+<p>当使用默认参数调用时，一开始结果也是对的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; add_end()</span><br><span class="line">[&apos;END&apos;]</span><br></pre></td></tr></table></figure>
+<p>但当再次调用时，结果就不对了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; add_end()</span><br><span class="line">[&apos;END&apos;, &apos;END&apos;]</span><br><span class="line">&gt;&gt;&gt; add_end()</span><br><span class="line">[&apos;END&apos;, &apos;END&apos;, &apos;END&apos;]</span><br></pre></td></tr></table></figure>
+<p><strong>原因如下：Python函数在定义时，默认参数L的值就被计算出来了，即[],因为默认参数L也是一个变量，它指向对象[]，每次调用该函数，如果改变了L的内容，则下次调用时，默认参数的内容改变了，不再是函数定义时的[]了</strong><br><strong>因此，必须牢记，默认参数必须指向不变对象</strong></p>
+</li>
+<li><p>要修改上面，可用<strong>None</strong>这个不变对象来实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def add_end(L=None):</span><br><span class="line">  if L is None:</span><br><span class="line">      L=[]</span><br><span class="line">  L.append(&apos;End&apos;)</span><br><span class="line">  return L</span><br></pre></td></tr></table></figure>
+<p>这样，多次调用也没问题，因为每次都会判断赋空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; add_end()</span><br><span class="line">[&apos;End&apos;]</span><br><span class="line">&gt;&gt;&gt; add_end()</span><br><span class="line">[&apos;End&apos;]</span><br><span class="line">&gt;&gt;&gt; add_end()</span><br><span class="line">[&apos;End&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>可变参数<br>定义一个可变参数和定义一个list或tuple参数相比，仅仅在参数前面加一个*号；<br>如下函数，参数numbers接收到的是一个tuple<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def cal(*numbers):</span><br><span class="line">    sum=0</span><br><span class="line">    for n in numbers:</span><br><span class="line">        sum=sum+n*n</span><br><span class="line">    return sum</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; cal(1,2)</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; cal()</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当已经有一个list或tuple时，可以在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; num=[1,2,3]</span><br><span class="line">&gt;&gt;&gt; cal(*num)</span><br><span class="line">14</span><br><span class="line">&gt;&gt;&gt; num=(1,2,3)</span><br><span class="line">&gt;&gt;&gt; cal(*num)</span><br><span class="line">14</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><strong>关键字参数</strong></li>
+</ol>
+<ul>
+<li><strong>可变参数允许传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple</strong></li>
+<li><p><strong>关键字允许你传入0个或任意个含含参数名的参数，这些关键字参数在函数内部自动组装为一个dict</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def person(name,age,**kw):</span><br><span class="line">    print(&apos;name:&apos;,name,&apos;age:&apos;,age,&apos;others：&apos;,kw)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>可以只传入必选参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from fun_default import person</span><br><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以传入任意个数的关键字参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name: Tom age: 10 others： &#123;&#125;</span><br><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,city=&apos;Beijing&apos;)</span><br><span class="line">name: Tom age: 10 others： &#123;&apos;city&apos;: &apos;Beijing&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,gender=&apos;M&apos;,city=&apos;Beijing&apos;)</span><br><span class="line">name: Tom age: 10 others： &#123;&apos;city&apos;: &apos;Beijing&apos;, &apos;gender&apos;: &apos;M&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以先组装出一个dict，然后再把dict转换为关键字参数传进去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; extra=&#123;&apos;city&apos;:&apos;Beijing&apos;,&apos;gender&apos;:&apos;M&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,city=extra[&apos;city&apos;],gender=extra[&apos;gender&apos;])</span><br><span class="line">name: Tom age: 10 others： &#123;&apos;city&apos;: &apos;Beijing&apos;, &apos;gender&apos;: &apos;M&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>也可以使用简化形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,**extra)</span><br><span class="line">name: Tom age: 10 others： &#123;&apos;city&apos;: &apos;Beijing&apos;, &apos;gender&apos;: &apos;M&apos;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>**extra表示把extra这个dict的所有key-value用关键字参数传入到函数的</strong>kw参数，kw将获得一个dict,注意kw获得的是extra的一份拷贝，对kw的改动不会影响到函数外的extra**</p>
+</li>
+</ul>
+<ol>
+<li><strong>命名关键字参数</strong><br>如果要限制关键字参数的名字，就可以用命名关键字，例如，只接受city和job作为关键字参数，可定义如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def person(name,age,*,city,job):</span><br><span class="line">    print(name,age,city,job)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>这和<em>*kw关键字参数不同，命名关键字参数需要一个特殊分隔符\</em>,*后面的参数被视为命名关键字参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def person(name, age, *args, city, job):</span><br><span class="line">    print(name, age, args, city, job)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊的*分割符了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,city=&apos;Beijing&apos;,Job=&apos;Engineer&apos;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: person() got an unexpected keyword argument &apos;Job&apos;</span><br><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,city=&apos;Beijing&apos;,job=&apos;Engineer&apos;)</span><br><span class="line">Tom 10 Beijing Engineer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命名关键字必须传入参数名，这和位置参数不同，如果没有传入参数名，调用将报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,&apos;Beijing&apos;,&apos;engineer&apos;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: person() takes 2 positional arguments but 4 were given</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于调用时缺少参数名city和job,Python解释器把这四个参数均视为位置参数，但person()仅接收2个参数</p>
+</li>
+<li><p>命名关键字参数可以有缺省值，从而简化调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def person(name,age,*,city=&apos;Beijing&apos;,job):</span><br><span class="line">    print(name,age,city,job)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; person(&apos;Tom&apos;,10,job=&apos;Engineer&apos;)</span><br><span class="line">Tom 10 Beijing Engineer</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><strong>参数组合</strong></li>
+</ol>
+<ul>
+<li><p>参数定义的顺序必须是：必选参数，默认参数，可变参数，命名关键字参数和关键字参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def f1(a,b,c=0,*args,d,**kw):</span><br><span class="line">    print(&apos;a=&apos;,a,&apos;b=&apos;,b,&apos;c=&apos;,c,&apos;arge=&apos;,args,&apos;d=&apos;,d,&apos;kw=&apos;,kw)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f1(1,2,3,nums,d=5,kk=&apos;a&apos;)</span><br><span class="line">a= 1 b= 2 c= 3 arge= ([6, 7, 8],) d= 5 kw= &#123;&apos;kk&apos;: &apos;a&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; f1(1,2,3,nums,f=5,kk=&apos;a&apos;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: f1() missing 1 required keyword-only argument: &apos;d&apos;</span><br></pre></td></tr></table></figure>
+<p>如下，若顺序不对，则会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def f1(a,b,c=0,*args,**kw,d):</span><br><span class="line">    print(&apos;a=&apos;,a,&apos;b=&apos;,b,&apos;c=&apos;,c,&apos;arge=&apos;,args,&apos;d=&apos;,d,&apos;kw=&apos;,kw)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意以下，可以通过tuple和dict进行如下调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; args=(1,2,3,4)</span><br><span class="line">&gt;&gt;&gt; kw=&#123;&apos;d&apos;:88,&apos;X&apos;:&apos;W&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; f1(*args,**kw)</span><br><span class="line">a= 1 b= 2 c= 3 arge= (4,) d= 88 kw= &#123;&apos;X&apos;: &apos;W&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/03/循环/" rel="next" title="判断与循环及字典">
+                <i class="fa fa-chevron-left"></i> 判断与循环及字典
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Qiulin Zhang</p>
+              <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiulin Zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
