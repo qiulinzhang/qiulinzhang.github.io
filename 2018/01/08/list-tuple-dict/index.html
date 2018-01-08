@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="###原题：670.Maximum Swap  Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get. ####example  Input: 2736O">
+<meta name="description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Math_Medium]670.Maximum Swap">
-<meta property="og:url" content="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/index.html">
+<meta property="og:title" content="list+tuple+dict">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/list-tuple-dict/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
-<meta property="og:description" content="###原题：670.Maximum Swap  Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get. ####example  Input: 2736O">
-<meta property="og:updated_time" content="2017-12-29T14:17:49.819Z">
+<meta property="og:description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
+<meta property="og:updated_time" content="2018-01-08T14:30:46.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Math_Medium]670.Maximum Swap">
-<meta name="twitter:description" content="###原题：670.Maximum Swap  Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get. ####example  Input: 2736O">
+<meta name="twitter:title" content="list+tuple+dict">
+<meta name="twitter:description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/list-tuple-dict/"/>
 
 
 
 
 
-  <title>[Math_Medium]670.Maximum Swap | To Be a Better Us</title>
+  <title>list+tuple+dict | To Be a Better Us</title>
   
 
 
@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/Math-Medium-670-Maximum-Swap/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/list-tuple-dict/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiulin Zhang">
@@ -248,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Math_Medium]670.Maximum Swap</h1>
+          <h1 class="post-title" itemprop="name headline">list+tuple+dict</h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T22:16:39+08:00">
-                2017-12-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T15:45:33+08:00">
+                2018-01-08
               </time>
             
 
@@ -283,8 +283,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -320,16 +320,32 @@
       
 
       
-        <p>###原题：<a href="https://leetcode.com/problems/maximum-swap/description/" target="_blank" rel="noopener">670.Maximum Swap</a></p>
-<blockquote>
-<p>Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get.</p>
-<p>####example</p>
-<ol>
-<li>Input: 2736<br>Output: 7236<br>Explanation: Swap the number 2 and the number 7.</li>
-<li>Input: 9973<br>Output: 9973<br>Explanation: No swap.<br>####题目大意<br>给你一个非负数，你最多只能把其中的2个数字进行对调，请求出进行操作后所得到的最大值<br>####解题思路<br>开始我想错了，自以为地想只要把最大数字和最高位数字进行对调就可以了，却忽略了当最大数字已经在最高位时，我们应该确保次高位数字最大 ，或当最高位和次高位均已经为最大时，应该保证第三位最大。<br>因此，咱们可以先把每个数字进行排序，再与原来的数字从最高位开始进行比较，找到第一个不同位，然后确保在从第一个不同位开始以及后面的位中，取出最大的那一位与第一个不同位进行对调，即可<br>####代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maximumSwap(int num) </span><br><span class="line">    &#123;</span><br><span class="line">        int temp_num=num;</span><br><span class="line">        int a_i=0,b_i=0,i=0;</span><br><span class="line">        int a[10]=&#123;0&#125;,b[10]=&#123;0&#125;;</span><br><span class="line">        while(temp_num)</span><br><span class="line">        &#123;</span><br><span class="line">            a[a_i++]=temp_num%10;</span><br><span class="line">            b[b_i++]=temp_num%10;</span><br><span class="line">            temp_num/=10;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(b,b+b_i);</span><br><span class="line">        for(i=a_i-1;i&gt;=0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a[i]!=b[i])//找到第一个不相同的位</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        int j=0,max_num=i;</span><br><span class="line">        for(j=i;j&gt;=0;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a[j]&gt;=a[max_num])//从这一位开始往后面找最大的数，用&gt;=，即如果有两个</span><br><span class="line">                max_num=j;//相同的数，把低位上的提上来，使得值最大，1993，应该把十位上的9提到前面</span><br><span class="line">        &#125;</span><br><span class="line">        if(i&gt;=0)</span><br><span class="line">        &#123;</span><br><span class="line">            int tmp=a[i];</span><br><span class="line">            a[i]=a[max_num];</span><br><span class="line">            a[max_num]=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        int ans=0;</span><br><span class="line">        for(i=a_i;i&gt;=0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            ans=(ans*10+a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="一、list-列表"><a href="#一、list-列表" class="headerlink" title="一、list(列表)"></a>一、list(列表)</h2><ol>
+<li>声明一个列表:<strong><code>listName=[initial values]</code></strong>,list使用[],可以包括不同数据类型，多个值用逗号隔开</li>
+<li>访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个</li>
+<li>把一个列表或列表的一部分分配给一个变量，如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=[1,2,3,&apos;4&apos;,6.6]</span><br><span class="line">&gt;&gt;&gt; b=a</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">[1, 2, 3, &apos;4&apos;, 6.6]</span><br><span class="line">&gt;&gt;&gt; c=a[2:4]</span><br><span class="line">&gt;&gt;&gt; c</span><br><span class="line">[3, &apos;4&apos;]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-</blockquote>
+<ul>
+<li>如上，c=a[2:4]表示把a中索引为2到4-1的元素分配给c,<strong>符号2:4称为切片，无论何时我们在使用Python中的切片符号，它总是包括开始索引的元素，但不包括结束索引的元素</strong></li>
+<li>切片符号包括第三个数字，叫做步长，即<code>c=a[1:5:2]</code>,表示从索引位置起到最后5-1止每2个元素取一个，即<code>c=[2,&#39;4&#39;]</code></li>
+<li>切片符号的默认第一个数字是0，默认第二个数字的长度是列表的长度。</li>
+</ul>
+<ol>
+<li>删除列表中的元素：<code>del listName[index]</code>,添加数组尾元素：<code>listName.append(value)</code><h2 id="二、tuple-元组"><a href="#二、tuple-元组" class="headerlink" title="二、tuple(元组)"></a>二、tuple(元组)</h2></li>
+<li>tuople的声明：<code>tupleName=(initial value)</code>,<strong>tuple使用()</strong>,多个值用逗号隔开</li>
+<li><strong>一旦初始化，无法修改其值</strong><h2 id="三、dict-字典"><a href="#三、dict-字典" class="headerlink" title="三、dict(字典)"></a>三、dict(字典)</h2></li>
+<li>声明：<code>dictName={key1:value1,key2:value1}</code>,要求关键字唯一，<strong>要求使用{}</strong></li>
+</ol>
+<ul>
+<li>使用dict()方法声明：<code>nameAndAge=dict(Tom=10,Jack=20,Rose=&#39;Old&#39;)</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; nameAndAge=&#123;&apos;Tom&apos;:20,&apos;Jack&apos;:30,&apos;Rose&apos;:&apos;Old&apos;,10:20&#125;</span><br><span class="line">&gt;&gt;&gt; nameAndAge</span><br><span class="line">&#123;&apos;Tom&apos;: 20, &apos;Jack&apos;: 30, 10: 20, &apos;Rose&apos;: &apos;Old&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; nameAndAge=dict(Tom=20,Jack=30,Rose=&apos;old&apos;,10=20)</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1</span><br><span class="line">SyntaxError: keyword can&apos;t be an expression</span><br><span class="line">&gt;&gt;&gt; nameAndAge=dict(Tom=20,Jack=30,Rose=&apos;old&apos;,lol=20)</span><br><span class="line">&gt;&gt;&gt; nameAndAge</span><br><span class="line">&#123;&apos;Tom&apos;: 20, &apos;Jack&apos;: 30, &apos;lol&apos;: 20, &apos;Rose&apos;: &apos;old&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>往字典中添加元素，<code>dictName[newKey]=newValue</code><br>删除元素：<code>del dictName[key]</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#声明字典，字典的关键字和值可以是不同的数据类型</span><br><span class="line">&gt;&gt;&gt; mydict=&#123;&quot;one&quot;:1.35,2.5:&quot;Two point five&quot;,3:&quot;+&quot;,7.9:2&#125;</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;&apos;one&apos;: 1.35, 2.5: &apos;Two point five&apos;, 3: &apos;+&apos;, 7.9: 2&#125;</span><br><span class="line">#字典中元素的顺序和声明的顺序是不一样的</span><br><span class="line">&gt;&gt;&gt; print(mydict[&quot;one&quot;])</span><br><span class="line">1.35</span><br><span class="line">&gt;&gt;&gt; print(mydict[7.9])</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; mydict[2.5]=&quot;Two and a half&quot;</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;&apos;one&apos;: 1.35, 2.5: &apos;Two and a half&apos;, 3: &apos;+&apos;, 7.9: 2&#125;</span><br><span class="line">&gt;&gt;&gt; mydict[&quot;new item&quot;]=&quot;I&apos;am new&quot;</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;&apos;one&apos;: 1.35, 2.5: &apos;Two and a half&apos;, 3: &apos;+&apos;, &apos;new item&apos;: &quot;I&apos;am new&quot;, 7.9: 2&#125;</span><br><span class="line">&gt;&gt;&gt; del mydict[&quot;one&quot;]</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;2.5: &apos;Two and a half&apos;, 3: &apos;+&apos;, &apos;new item&apos;: &quot;I&apos;am new&quot;, 7.9: 2&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上</p>
 
       
     </div>
@@ -354,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/29/Math-Medium-640-Solve-the-Equation/" rel="next" title="[Math_Medium]640.Solve the Equation">
-                <i class="fa fa-chevron-left"></i> [Math_Medium]640.Solve the Equation
+              <a href="/2018/01/07/Python基础-变量+操作符+数据类型及转换/" rel="next" title="Python基础-变量+操作符+数据类型">
+                <i class="fa fa-chevron-left"></i> Python基础-变量+操作符+数据类型
               </a>
             
           </div>
@@ -363,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/29/Math-Easy-728-Self-Dividing-Numbers/" rel="prev" title="[Math_Easy]728.Self Dividing Numbers">
-                [Math_Easy]728.Self Dividing Numbers <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +500,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、list-列表"><span class="nav-number">1.</span> <span class="nav-text">一、list(列表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、tuple-元组"><span class="nav-number">2.</span> <span class="nav-text">二、tuple(元组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、dict-字典"><span class="nav-number">3.</span> <span class="nav-text">三、dict(字典)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
