@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/07/Python基础-变量+操作符+数据类型及转换/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
 <meta property="og:description" content="多个变量的定义   12345&amp;gt;&amp;gt;&amp;gt; a,b=90,&amp;apos;Tom&amp;apos;&amp;gt;&amp;gt;&amp;gt; a90&amp;gt;&amp;gt;&amp;gt; b&amp;apos;Tom&amp;apos;  // 表示向最近的整数往下取整，**表示指数运算 12345&amp;gt;&amp;gt;&amp;gt; a,b=5,2&amp;gt;&amp;gt;&amp;gt; a//b2&amp;gt;&amp;gt;&amp;gt; a**b25  声明一个字符串，可以使用单">
-<meta property="og:updated_time" content="2018-01-08T07:44:54.655Z">
+<meta property="og:updated_time" content="2018-01-23T04:07:38.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础-变量+操作符+数据类型">
 <meta name="twitter:description" content="多个变量的定义   12345&amp;gt;&amp;gt;&amp;gt; a,b=90,&amp;apos;Tom&amp;apos;&amp;gt;&amp;gt;&amp;gt; a90&amp;gt;&amp;gt;&amp;gt; b&amp;apos;Tom&amp;apos;  // 表示向最近的整数往下取整，**表示指数运算 12345&amp;gt;&amp;gt;&amp;gt; a,b=5,2&amp;gt;&amp;gt;&amp;gt; a//b2&amp;gt;&amp;gt;&amp;gt; a**b25  声明一个字符串，可以使用单">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T22:01:31+08:00">
                 2018-01-07
@@ -279,7 +279,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -358,6 +358,25 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; str(3.1)</span><br><span class="line">&apos;3.1&apos;</span><br><span class="line">&gt;&gt;&gt; str(3)</span><br><span class="line">&apos;3&apos;</span><br><span class="line">&gt;&gt;&gt; str(&quot;asd&quot;)</span><br><span class="line">&apos;asd&apos;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<ol>
+<li><strong>local variable and global variable</strong></li>
+</ol>
+<ul>
+<li><p>when you declare variables inside a function definition,they are not related in any way to other variables with the same names outside the function</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x=50</span><br><span class="line"></span><br><span class="line">def func(x):</span><br><span class="line">    print(&apos;x is&apos;,x)</span><br><span class="line">    x=2</span><br><span class="line">    print(&apos;changed local x to&apos;,x)</span><br><span class="line">func(x)</span><br><span class="line">print(&apos;x is still&apos;,x)</span><br></pre></td></tr></table></figure>
+<p>the result is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x is 50</span><br><span class="line">changed local x to 2</span><br><span class="line">x is still 50</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if you want to assign a value to a name defined at the top lever of the program,then you need to tell Python that the name is global</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x=50</span><br><span class="line"></span><br><span class="line">def func():</span><br><span class="line">    global x</span><br><span class="line">    print(&apos;x is&apos;,x)</span><br><span class="line">    x=2</span><br><span class="line">    print(&apos;changed local x to&apos;,x)</span><br><span class="line">func()</span><br><span class="line">print(&apos;x is still&apos;,x)</span><br></pre></td></tr></table></figure>
+<p>the result is :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x is 50</span><br><span class="line">changed local x to 2</span><br><span class="line">x is still 2</span><br></pre></td></tr></table></figure>
+<p>Using the global statement makes it amptly clear that the varible is defined in an outmost block.</p>
+</li>
+</ul>
+<ol>
+<li>When we declare a starred parameter such as <code>*param</code>,then all the positional arguments from that point till the end are collected as a tuple called <em>param</em><br>When we declare a double starred parameter such as <code>**param</code>,then all the positional arguments from that poin till the end are collected as a dictionary called <code>&#39;param&#39;</code> </li>
+</ol>
 
       
     </div>
@@ -462,8 +481,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -473,8 +492,8 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
                 
               </div>
             
@@ -485,7 +504,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -531,7 +550,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

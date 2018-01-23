@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/05/函数/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
 <meta property="og:description" content="库函数名可以用变量替代 12345&amp;gt;&amp;gt;&amp;gt; abs(-100)100&amp;gt;&amp;gt;&amp;gt; a=abs&amp;gt;&amp;gt;&amp;gt; a(-1)1  在Python中，定义一个函数要用def语句，依次写出函数名，括号，括号中的参数和冒号:,然后在缩进块中编写函数体，函数的返回值用return. 123456def my_abs(x):    if x&amp;gt;=0:       ret">
-<meta property="og:updated_time" content="2018-01-06T11:28:14.334Z">
+<meta property="og:updated_time" content="2018-01-23T08:05:04.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数">
 <meta name="twitter:description" content="库函数名可以用变量替代 12345&amp;gt;&amp;gt;&amp;gt; abs(-100)100&amp;gt;&amp;gt;&amp;gt; a=abs&amp;gt;&amp;gt;&amp;gt; a(-1)1  在Python中，定义一个函数要用def语句，依次写出函数名，括号，括号中的参数和冒号:,然后在缩进块中编写函数体，函数的返回值用return. 123456def my_abs(x):    if x&amp;gt;=0:       ret">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T22:20:26+08:00">
                 2018-01-05
@@ -279,7 +279,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -392,7 +392,7 @@
 </li>
 </ul>
 <ol>
-<li>可变参数<br>定义一个可变参数和定义一个list或tuple参数相比，仅仅在参数前面加一个*号；<br>如下函数，参数numbers接收到的是一个tuple<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def cal(*numbers):</span><br><span class="line">    sum=0</span><br><span class="line">    for n in numbers:</span><br><span class="line">        sum=sum+n*n</span><br><span class="line">    return sum</span><br></pre></td></tr></table></figure>
+<li>可变参数:定义一个可变参数和定义一个list或tuple参数相比，仅仅在参数前面加一个*号;如下函数，参数numbers接收到的是一个tuple<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def cal(*numbers):</span><br><span class="line">    sum=0</span><br><span class="line">    for n in numbers:</span><br><span class="line">        sum=sum+n*n</span><br><span class="line">    return sum</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; cal(1,2)</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; cal()</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
@@ -458,7 +458,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; args=(1,2,3,4)</span><br><span class="line">&gt;&gt;&gt; kw=&#123;&apos;d&apos;:88,&apos;X&apos;:&apos;W&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; f1(*args,**kw)</span><br><span class="line">a= 1 b= 2 c= 3 arge= (4,) d= 88 kw= &#123;&apos;X&apos;: &apos;W&apos;&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>以上</p>
+<ol>
+<li><p>a <code>retuen</code> statement without a value is equivalent to <code>return None</code>.<code>None</code> is a special type in Python that represents nothingness;<br>The <code>pass</code> statement is used in Python to indicate an empty block of statements.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def fun():</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>DocStrings</strong>:A string on the first logical line of a function is the docstring fot that function,which also applies to modules and classes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def print_max(x,y):</span><br><span class="line">    &apos;&apos;&apos;Prints the maximum of two integers.</span><br><span class="line"></span><br><span class="line">    The two values must be integers.&apos;&apos;&apos;</span><br><span class="line">    #convert to integer if possible</span><br><span class="line">    x=int(x)</span><br><span class="line">    y=int(y)</span><br><span class="line">    if x&gt;y:</span><br><span class="line">       print(x,&apos;is max&apos;)</span><br><span class="line">    else:</span><br><span class="line">       print(y,&apos;is max&apos;)</span><br><span class="line">print_max(2,3)</span><br><span class="line">print(print_max.__doc__)</span><br></pre></td></tr></table></figure>
+<p>the result is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 is max</span><br><span class="line">Prints the maximum of two integers.</span><br><span class="line"></span><br><span class="line">    The two values must be integers.</span><br></pre></td></tr></table></figure>
+<p>The convention followed for a docstring is a multi-line string where the first line starts witha capital letter and ends with a dot.Then the second line is a blank followed by any detailed explanation starting from the third line.</p>
+</li>
+</ol>
 
       
     </div>
@@ -563,8 +573,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -574,8 +584,8 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
                 
               </div>
             
@@ -586,7 +596,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -632,7 +642,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
