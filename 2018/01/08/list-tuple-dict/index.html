@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/08/list-tuple-dict/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
 <meta property="og:description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
-<meta property="og:updated_time" content="2018-01-08T14:30:46.736Z">
+<meta property="og:updated_time" content="2018-01-24T03:56:25.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="list+tuple+dict">
 <meta name="twitter:description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T15:45:33+08:00">
                 2018-01-08
@@ -279,7 +279,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -338,6 +338,9 @@
 <li>声明：<code>dictName={key1:value1,key2:value1}</code>,要求关键字唯一，<strong>要求使用{}</strong></li>
 </ol>
 <ul>
+<li>Note that you can use <strong>only immutable objects(like strings) for the keys</strong> of a dictionary but you can use either immutable or mutable objects for the values of the dictionary.</li>
+<li>Remember that key-value pairs in adictionary are not ordered in any manner.</li>
+<li>The dictionaries that you will be using are instance/objects of the <code>dict</code>class</li>
 <li>使用dict()方法声明：<code>nameAndAge=dict(Tom=10,Jack=20,Rose=&#39;Old&#39;)</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; nameAndAge=&#123;&apos;Tom&apos;:20,&apos;Jack&apos;:30,&apos;Rose&apos;:&apos;Old&apos;,10:20&#125;</span><br><span class="line">&gt;&gt;&gt; nameAndAge</span><br><span class="line">&#123;&apos;Tom&apos;: 20, &apos;Jack&apos;: 30, 10: 20, &apos;Rose&apos;: &apos;Old&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; nameAndAge=dict(Tom=20,Jack=30,Rose=&apos;old&apos;,10=20)</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1</span><br><span class="line">SyntaxError: keyword can&apos;t be an expression</span><br><span class="line">&gt;&gt;&gt; nameAndAge=dict(Tom=20,Jack=30,Rose=&apos;old&apos;,lol=20)</span><br><span class="line">&gt;&gt;&gt; nameAndAge</span><br><span class="line">&#123;&apos;Tom&apos;: 20, &apos;Jack&apos;: 30, &apos;lol&apos;: 20, &apos;Rose&apos;: &apos;old&apos;&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -345,7 +348,25 @@
 <li>往字典中添加元素，<code>dictName[newKey]=newValue</code><br>删除元素：<code>del dictName[key]</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#声明字典，字典的关键字和值可以是不同的数据类型</span><br><span class="line">&gt;&gt;&gt; mydict=&#123;&quot;one&quot;:1.35,2.5:&quot;Two point five&quot;,3:&quot;+&quot;,7.9:2&#125;</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;&apos;one&apos;: 1.35, 2.5: &apos;Two point five&apos;, 3: &apos;+&apos;, 7.9: 2&#125;</span><br><span class="line">#字典中元素的顺序和声明的顺序是不一样的</span><br><span class="line">&gt;&gt;&gt; print(mydict[&quot;one&quot;])</span><br><span class="line">1.35</span><br><span class="line">&gt;&gt;&gt; print(mydict[7.9])</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; mydict[2.5]=&quot;Two and a half&quot;</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;&apos;one&apos;: 1.35, 2.5: &apos;Two and a half&apos;, 3: &apos;+&apos;, 7.9: 2&#125;</span><br><span class="line">&gt;&gt;&gt; mydict[&quot;new item&quot;]=&quot;I&apos;am new&quot;</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;&apos;one&apos;: 1.35, 2.5: &apos;Two and a half&apos;, 3: &apos;+&apos;, &apos;new item&apos;: &quot;I&apos;am new&quot;, 7.9: 2&#125;</span><br><span class="line">&gt;&gt;&gt; del mydict[&quot;one&quot;]</span><br><span class="line">&gt;&gt;&gt; print(mydict)</span><br><span class="line">&#123;2.5: &apos;Two and a half&apos;, 3: &apos;+&apos;, &apos;new item&apos;: &quot;I&apos;am new&quot;, 7.9: 2&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>以上</p>
+<ul>
+<li>The <code>items</code> method of the dictionary returns a list of tuples where each tuple contains a pair of items-the key followed by the value.</li>
+</ul>
+<ol>
+<li><strong>Sequence</strong>  </li>
+</ol>
+<ul>
+<li>The slicing operation is used by specifying the name of the sequence followed by an optional pair of numbers separated by a colon within square brackets. <strong>Remember the numbers are optional but the colon isn’t.</strong>  </li>
+<li>Note that the slice returned starts at the start position and will end just before the end position.The start position is included but the end position is excluded from sequence slice.  </li>
+<li>You can also provide a third argument for the slice,which is the <em>step</em> for the slicing(by default,the <em>step</em> size is 1) [start:end:step]  <h2 id="四、set-集合"><a href="#四、set-集合" class="headerlink" title="四、set(集合)"></a>四、set(集合)</h2>1.Examples:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bri=set([&apos;A&apos;,&apos;B&apos;,&apos;C&apos;])</span><br><span class="line">&gt;&gt;&gt; &apos;A&apos; in bri</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; &apos;D&apos; in bri</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bric=bri.copy()</span><br><span class="line">&gt;&gt;&gt; bric.add(&apos;E&apos;)</span><br><span class="line">&gt;&gt;&gt; bri</span><br><span class="line">&#123;&apos;B&apos;, &apos;A&apos;, &apos;C&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; bric</span><br><span class="line">&#123;&apos;B&apos;, &apos;A&apos;, &apos;E&apos;, &apos;C&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; bric.issuperset(bri)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bri&amp;bric</span><br><span class="line">&#123;&apos;B&apos;, &apos;A&apos;, &apos;C&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><strong>Note:</strong>When you create an object and assign it to a variable,the variable only refers to the object and does not represent the object itself!That is,the variable name points to that part of your computer’s memory where the object is stored.This is called <em>binding the name to the object.</em><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; bri=set([&apos;A&apos;,&apos;B&apos;,&apos;C&apos;])</span><br><span class="line">&gt;&gt;&gt; bric=bri</span><br><span class="line">&gt;&gt;&gt; bric.add(&apos;E&apos;)</span><br><span class="line">&gt;&gt;&gt; bric</span><br><span class="line">&#123;&apos;B&apos;, &apos;A&apos;, &apos;E&apos;, &apos;C&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; bri</span><br><span class="line">&#123;&apos;B&apos;, &apos;A&apos;, &apos;E&apos;, &apos;C&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>注意以上的区别，前者是bric=bri.copy(),后者是bric=bri</strong><br>Remember that if you want to make a copy of a list or such kind of sequences or complex objects,then you have to <strong>use the slicing opeation to make a copy</strong>,if you just assign the variable name to another name,both of them will “refer” to the same object and this could be trouble if you are not careful.<br>以上</li>
+</ul>
 
       
     </div>
@@ -436,10 +457,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -459,8 +480,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -471,7 +492,7 @@
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 
               </div>
             
@@ -482,7 +503,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -514,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、list-列表"><span class="nav-number">1.</span> <span class="nav-text">一、list(列表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、tuple-元组"><span class="nav-number">2.</span> <span class="nav-text">二、tuple(元组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、dict-字典"><span class="nav-number">3.</span> <span class="nav-text">三、dict(字典)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、list-列表"><span class="nav-number">1.</span> <span class="nav-text">一、list(列表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、tuple-元组"><span class="nav-number">2.</span> <span class="nav-text">二、tuple(元组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、dict-字典"><span class="nav-number">3.</span> <span class="nav-text">三、dict(字典)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、set-集合"><span class="nav-number">4.</span> <span class="nav-text">四、set(集合)</span></a></li></ol></div>
             
 
           </div>
@@ -544,7 +565,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
