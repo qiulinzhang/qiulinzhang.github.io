@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/08/list-tuple-dict/index.html">
 <meta property="og:site_name" content="To Be a Better Us">
 <meta property="og:description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
-<meta property="og:updated_time" content="2018-01-24T03:56:25.592Z">
+<meta property="og:updated_time" content="2018-01-31T08:04:56.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="list+tuple+dict">
 <meta name="twitter:description" content="一、list(列表) 声明一个列表:listName=[initial values],list使用[],可以包括不同数据类型，多个值用逗号隔开 访问索引从0开始，也可以利用负数从最后面开始，-1代表最后一个，-2代表倒数第二个 把一个列表或列表的一部分分配给一个变量，如下：1234567&amp;gt;&amp;gt;&amp;gt; a=[1,2,3,&amp;apos;4&amp;apos;,6.6]&amp;gt;&amp;gt;&amp;gt; b=">
@@ -332,7 +332,14 @@
 <li>切片符号的默认第一个数字是0，默认第二个数字的长度是列表的长度。</li>
 </ul>
 <ol>
-<li>删除列表中的元素：<code>del listName[index]</code>,添加数组尾元素：<code>listName.append(value)</code><h2 id="二、tuple-元组"><a href="#二、tuple-元组" class="headerlink" title="二、tuple(元组)"></a>二、tuple(元组)</h2></li>
+<li>删除列表中的元素：<code>del listName[index]</code>,添加数组尾元素：<code>listName.append(value)</code></li>
+<li><strong>List comprehensions</strong><br>A list comprehension is a convenient way of converting one list to another by filtering and applying functions to it.A list comprehension is written as:<br>[<em>expression</em> <strong>for</strong> <em>variable</em> <strong>in</strong> <em>list</em>] 　　　or: [<em>expression</em> <strong>for</strong> <em>variable</em> <strong>in</strong> <em>list</em> <strong>if</strong> <em>condition</em>]</li>
+</ol>
+<ul>
+<li>e.g <code>l=[1,2,3,4,5,6,7,8,9];</code>    <code>print(v*10 for v in l if v&gt;4)</code><br>would print this list: <code>[50,60,70,80]</code></li>
+<li>e.g <code>l=1,2,3,4,5,6,7,8,9];</code>　 <code>timesten=dict([(v,v*10) for v in l]);</code>　<code>print(timesten)</code><br>would print :<code>{1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90}</code><h2 id="二、tuple-元组"><a href="#二、tuple-元组" class="headerlink" title="二、tuple(元组)"></a>二、tuple(元组)</h2></li>
+</ul>
+<ol>
 <li>tuople的声明：<code>tupleName=(initial value)</code>,<strong>tuple使用()</strong>,多个值用逗号隔开</li>
 <li><strong>一旦初始化，无法修改其值</strong><h2 id="三、dict-字典"><a href="#三、dict-字典" class="headerlink" title="三、dict(字典)"></a>三、dict(字典)</h2></li>
 <li>声明：<code>dictName={key1:value1,key2:value1}</code>,要求关键字唯一，<strong>要求使用{}</strong></li>
@@ -480,7 +487,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -491,7 +498,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">Kategorien</span>
                 
               </div>

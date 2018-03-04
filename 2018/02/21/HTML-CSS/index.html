@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、HTML: HyperText Markup Language 超文本标记语言1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&amp;lt;!--告诉浏览器这个文档是HTML5版本--&amp;gt;&amp;lt;!DOC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML_CSS">
+<meta property="og:url" content="http://yoursite.com/2018/02/21/HTML-CSS/index.html">
+<meta property="og:site_name" content="To Be a Better Us">
+<meta property="og:description" content="一、HTML: HyperText Markup Language 超文本标记语言1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&amp;lt;!--告诉浏览器这个文档是HTML5版本--&amp;gt;&amp;lt;!DOC">
+<meta property="og:updated_time" content="2018-02-22T09:02:58.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML_CSS">
+<meta name="twitter:description" content="一、HTML: HyperText Markup Language 超文本标记语言1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&amp;lt;!--告诉浏览器这个文档是HTML5版本--&amp;gt;&amp;lt;!DOC">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/21/HTML-CSS/"/>
+
+
+
+
+
+  <title>HTML_CSS | To Be a Better Us</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">To Be a Better Us</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不积跬步无以至千里</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/HTML-CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiulin Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Be a Better Us">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML_CSS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T21:48:05+08:00">
+                2018-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/front-end/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML_CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、HTML-HyperText-Markup-Language-超文本标记语言"><a href="#一、HTML-HyperText-Markup-Language-超文本标记语言" class="headerlink" title="一、HTML: HyperText Markup Language 超文本标记语言"></a>一、HTML: HyperText Markup Language 超文本标记语言</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--告诉浏览器这个文档是HTML5版本--&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!-- html 包裹所有其他的标签，是HTML最外层的标签 --&gt;</span><br><span class="line">&lt;HTML&gt;</span><br><span class="line">        &lt;!-- head是文档的头部 --&gt;</span><br><span class="line">        &lt;head&gt;</span><br><span class="line">                &lt;!-- meta元素可提供有关页面的元信息(meta-information)，比如针对搜索引擎和更新频率的描述和关键词、文档的编码--&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!-- title表示网页的标题--&gt;</span><br><span class="line">                &lt;title&gt;This is my first page&lt;/title&gt;</span><br><span class="line">        &lt;/head&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--网页中显示的内容放在body中--&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">                Hello World</span><br><span class="line"></span><br><span class="line">                &lt;!--div表示一个容器或盒子，里面可以添加样式和颜色等--&gt;</span><br><span class="line">                &lt;div&gt;Hello World&lt;/div&gt;</span><br><span class="line">                &lt;div&gt;Hello World&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!--span与div基本一直，区别在于可以在一行内显示--&gt;</span><br><span class="line">                &lt;span&gt;Hello World&lt;/span&gt;</span><br><span class="line">                &lt;span&gt;Hello World&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!--h1到h6表示标题级别，h1表示一级标题--&gt;</span><br><span class="line">                &lt;h1&gt;一级标题&lt;/h1&gt;</span><br><span class="line">                &lt;h2&gt;二级标题&lt;/h2&gt;</span><br><span class="line">                &lt;h3&gt;三级标题&lt;/h3&gt;</span><br><span class="line">                &lt;h4&gt;四级标题&lt;/h4&gt;</span><br><span class="line">                &lt;h5&gt;五级标题&lt;/h5&gt;</span><br><span class="line">                &lt;h6&gt;六级标题&lt;/h6&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!-- p标签表示段落--&gt;</span><br><span class="line">                &lt;p&gt;第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段第一段&lt;/p&gt;</span><br><span class="line">                &lt;p&gt;第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段第二段&lt;/p&gt;</span><br><span class="line">                &lt;p&gt;第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段第三段&lt;/p&gt;</span><br><span class="line">                </span><br><span class="line">                &lt;!-- hr表示水平分割线--&gt;</span><br><span class="line">                &lt;hr /&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!-- ul标签表示无序列表--&gt;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                        &lt;li&gt;列表1&lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;列表2&lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;列表3&lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">                &lt;!-- img表示图片标签--&gt;</span><br><span class="line">                &lt;img src=&quot;//home//Pictures//vim_go.png&quot; alt=&quot;图片无法显示&quot; title=&quot;VIM&quot; /&gt;</span><br><span class="line">                &lt;!-- 图片的地址：</span><br><span class="line">                     绝对地址：当前的图片在硬盘的位置，缺点：可以执行差</span><br><span class="line">                     相对地址：1. 若在同级目录，则直接写文件名即可</span><br><span class="line">                               2. 图片在当前文件的下一级：&quot;./文件名/文件名&quot;</span><br><span class="line">                               3. 图片在当前文件的上一级：&quot;../&quot;表示一个上一级，可多个叠加表示多个上级 --&gt;</span><br><span class="line">                &lt;!--img 标签必须要加上src属性才能把图像显示出来</span><br><span class="line">                                      alt属性：当图片没有办法显示时用来提示用户的文字</span><br><span class="line">                                      title属性：当鼠标移动到图片上时，用来提示用户的文字--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &lt;!--a标签，表示超链接，可以链接一切资源包括网址，视频，文字等--&gt;</span><br><span class="line">                      &lt;!-- href属性表示超链接的地址，target属性：_blank表示新建一个浏览器标签页，从而不会覆盖原网页--&gt;</span><br><span class="line">                &lt;a href=&quot;http://www.baidu.com&quot;target=_blank&gt;百度&lt;/a&gt;</span><br><span class="line">        &lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="二、CSS-Cascading-Style-Sheet-层叠-级联样式表"><a href="#二、CSS-Cascading-Style-Sheet-层叠-级联样式表" class="headerlink" title="二、CSS: Cascading Style Sheet 层叠/级联样式表"></a>二、CSS: Cascading Style Sheet 层叠/级联样式表</h2><p>2.1 是一种格式设置规则，用于控制web页面的外观<br>2.2 如何让一个标签具有样式</p>
+<ul>
+<li>第一步，必须保证引入方式正确</li>
+<li>第二步，必须让CSS和HTML元素产生关联,也就是说得先找到这个元素</li>
+<li>第三步，用相应的CSS属性去修改HTML元素的样式<br>2.3 如何去使用CSS</li>
+<li>在HTML网页中，加入一个style标签，在这个style标签里面写CSS代码</li>
+<li>可以直接把style里面的代码放到一个单独的css文件中，再通过<code>link</code>标签</li>
+<li>直接在HTML开始标签的style属性里面去写CSS代码<br>2.4 三种基础选择器</li>
+<li>id选择器，对应<code>#</code>:每个id的名称不能重复，一般应用于网页中有唯一的元素需要修饰</li>
+<li>class类选择器，对应<code>.</code>:类名称可以出现多次多个元素可以为相同的类，一般应用于有多个元素具有同样的样式时</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/30/Exception/" rel="next" title="Exception">
+                <i class="fa fa-chevron-left"></i> Exception
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/04/Math-Easy-7-ReverseInt-md/" rel="prev" title="Math_Easy_7_ReverseInt.md">
+                Math_Easy_7_ReverseInt.md <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Qiulin Zhang</p>
+              <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、HTML-HyperText-Markup-Language-超文本标记语言"><span class="nav-number">1.</span> <span class="nav-text">一、HTML: HyperText Markup Language 超文本标记语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、CSS-Cascading-Style-Sheet-层叠-级联样式表"><span class="nav-number">2.</span> <span class="nav-text">二、CSS: Cascading Style Sheet 层叠/级联样式表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiulin Zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
